@@ -1,26 +1,113 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-noto-sans-jp), "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, sans-serif;
+  --font-display: var(--font-shippori-mincho), "游明朝", "Yu Mincho",
+    "Hiragino Mincho ProN", serif;
+  --color-primary: #1B4D3E;
+  --color-primary-dark: #143A2F;
+  --color-primary-light: #E8F0ED;
+  --color-secondary: #06C755;
+  --color-secondary-dark: #05B04A;
+  --color-accent: #C4753B;
+  --color-accent-dark: #A8612F;
+  --color-accent-light: #FBF3ED;
+  --color-gold: #B8960C;
+  --color-gold-light: #FBF8EC;
+  --color-text: #1A1A1A;
+  --color-text-muted: #6B7280;
+  --color-text-light: #9CA3AF;
+  --color-bg: #FAFBFA;
+  --color-bg-warm: #F7F4F0;
+  --color-bg-gray: #F5F7FA;
+  --color-border: #E5E7EB;
+  --color-border-light: #F3F4F6;
+  --color-footer: #1A2A23;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Section spacing */
+.section-padding {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 88px;
+    padding-bottom: 88px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+/* Container */
+.container-main {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media (min-width: 768px) {
+  .container-main {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-main {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* Utility: card elevated */
+.card-elevated {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(27, 77, 62, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s ease;
+}
+
+.card-elevated:hover {
+  box-shadow: 0 8px 32px rgba(27, 77, 62, 0.1), 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+/* Utility: dot pattern background */
+.pattern-dots {
+  background-image: radial-gradient(circle, var(--color-primary) 0.5px, transparent 0.5px);
+  background-size: 24px 24px;
+  opacity: 0.04;
+}
+
+/* Accent bar for section headings */
+.accent-bar {
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--color-accent);
+  border-radius: 2px;
+  margin-top: 12px;
+}
+
+.accent-bar-center {
+  margin-left: auto;
+  margin-right: auto;
 }
