@@ -17,10 +17,19 @@ const shipporiMincho = Shippori_Mincho({
   display: "swap",
 });
 
+const BASE_URL = "https://tubamenoju.jp";
+
 export const metadata: Metadata = {
-  title: "つばめの住｜千葉県の外壁塗装・屋根塗装・リフォーム専門",
+  metadataBase: new URL(BASE_URL),
+  title: {
+    default: "つばめの住｜千葉県の外壁塗装・屋根塗装・リフォーム専門",
+    template: "%s｜つばめの住",
+  },
   description:
     "千葉県を中心に外壁塗装・屋根塗装・リフォームを行う「つばめの住」。はじめてでもわかりやすくご案内します。無料見積もり受付中。",
+  alternates: {
+    canonical: BASE_URL,
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -33,8 +42,25 @@ export const metadata: Metadata = {
     title: "つばめの住｜千葉県の外壁塗装・屋根塗装・リフォーム専門",
     description:
       "千葉県を中心に外壁塗装・屋根塗装・リフォームを行う「つばめの住」。はじめてでもわかりやすくご案内します。",
+    url: BASE_URL,
+    siteName: "つばめの住",
     type: "website",
     locale: "ja_JP",
+    images: [
+      {
+        url: `${BASE_URL}/images/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: "つばめの住｜千葉県の外壁塗装・屋根塗装・リフォーム専門",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "つばめの住｜千葉県の外壁塗装・屋根塗装・リフォーム専門",
+    description:
+      "千葉県を中心に外壁塗装・屋根塗装・リフォームを行う「つばめの住」。はじめてでもわかりやすくご案内します。",
+    images: [`${BASE_URL}/images/og-image.png`],
   },
 };
 

@@ -43,17 +43,17 @@ export default function WorriesSection() {
           />
         </ScrollReveal>
 
-        <div className="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4 lg:gap-8">
+        <div className="grid grid-cols-2 gap-5 md:gap-6 lg:grid-cols-4 lg:gap-8">
           {worries.map((worry, index) => (
             <ScrollReveal key={index} delay={index * 0.1}>
-              <div className="flex flex-col items-center rounded-xl border border-border-light bg-white p-5 text-center">
-                <div className={`mb-3 flex h-16 w-16 items-center justify-center rounded-full ${worry.bgColor} md:h-18 md:w-18 lg:h-20 lg:w-20`}>
+              <div className="card-rich flex flex-col items-center p-6 text-center lg:p-8">
+                <div className={`mb-4 flex h-18 w-18 items-center justify-center rounded-full ${worry.bgColor} md:h-20 md:w-20 lg:h-24 lg:w-24`}>
                   <worry.icon
-                    size={28}
-                    className={`${worry.color} lg:h-8 lg:w-8`}
+                    size={32}
+                    className={`${worry.color} lg:h-9 lg:w-9`}
                   />
                 </div>
-                <p className="whitespace-pre-line text-xs font-medium leading-relaxed text-text md:text-sm">
+                <p className="whitespace-pre-line text-sm font-medium leading-relaxed text-text md:text-base">
                   {worry.title}
                 </p>
               </div>
@@ -65,7 +65,7 @@ export default function WorriesSection() {
           <div className="mt-10 text-center">
             <a
               href="#reasons"
-              className="inline-flex items-center gap-2 rounded-full bg-primary-light px-6 py-3 text-sm font-bold text-primary transition-colors hover:bg-primary hover:text-white"
+              className="inline-flex items-center gap-2 rounded-full bg-primary-light px-8 py-4 text-base font-bold text-primary shadow-sm transition-all hover:bg-primary hover:text-white hover:shadow-md"
             >
               <span>✋</span>
               私たちは、そんな不安にひとつひとつお応えします

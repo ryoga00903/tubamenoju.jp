@@ -19,23 +19,23 @@ function FAQItem({
   onClick: () => void;
 }) {
   return (
-    <div className={`overflow-hidden rounded-xl border bg-white transition-all hover:shadow-sm ${isOpen ? "border-l-4 border-primary shadow-sm" : "border-border"}`}>
+    <div className={`overflow-hidden rounded-2xl border bg-white transition-all ${isOpen ? "border-l-4 border-primary shadow-md ring-1 ring-primary/10" : "border-border shadow-sm hover:shadow-md"}`}>
       <button
         type="button"
         onClick={onClick}
-        className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left lg:px-6 lg:py-5"
+        className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left lg:px-8 lg:py-6"
         aria-expanded={isOpen}
       >
         <div className="flex items-start gap-3">
-          <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">
+          <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">
             Q
           </span>
-          <span className="text-sm font-bold text-text md:text-base">
+          <span className="text-base font-bold text-text md:text-lg">
             {question}
           </span>
         </div>
         <ChevronDown
-          size={20}
+          size={22}
           className={`shrink-0 text-text-muted transition-transform duration-300 ${
             isOpen ? "rotate-180" : ""
           }`}
@@ -50,12 +50,12 @@ function FAQItem({
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            <div className="border-t border-border px-5 py-4 lg:px-6 lg:py-5">
+            <div className="border-t border-border px-6 py-5 lg:px-8 lg:py-6">
               <div className="flex items-start gap-3">
-                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent/10 text-xs font-bold text-accent">
+                <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent/10 text-sm font-bold text-accent">
                   A
                 </span>
-                <p className="text-sm leading-relaxed text-text-muted">
+                <p className="text-base leading-relaxed text-text-muted">
                   {answer}
                 </p>
               </div>
@@ -81,7 +81,7 @@ export default function FAQSection() {
           />
         </ScrollReveal>
 
-        <div className="mx-auto max-w-3xl space-y-3">
+        <div className="mx-auto max-w-3xl space-y-4">
           {FAQ_ITEMS.map((item, index) => (
             <ScrollReveal key={index} delay={index * 0.05}>
               <FAQItem

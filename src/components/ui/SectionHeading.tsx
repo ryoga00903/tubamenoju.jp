@@ -20,16 +20,16 @@ export default function SectionHeading({
   const alignClass = align === "center" ? "text-center" : "text-left";
 
   return (
-    <div className={`mb-10 md:mb-12 lg:mb-14 ${alignClass}`}>
+    <div className={`mb-12 md:mb-14 lg:mb-16 ${alignClass}`}>
       {engLabel && (
-        <p className={`mb-2 text-[11px] font-semibold tracking-[0.2em] uppercase ${dark ? "text-white/50" : "text-accent"}`}>
+        <p className={`mb-2 text-xs font-semibold tracking-[0.25em] uppercase ${dark ? "text-white/50" : "text-accent"}`}>
           {engLabel}
         </p>
       )}
       {label && (
         <div className="mb-3">
           {dark ? (
-            <span className="inline-block rounded-full bg-white/20 px-4 py-1.5 text-xs font-medium tracking-wide text-white">
+            <span className="inline-block rounded-full bg-white/20 px-5 py-2 text-sm font-medium tracking-wide text-white">
               {label}
             </span>
           ) : (
@@ -37,12 +37,12 @@ export default function SectionHeading({
           )}
         </div>
       )}
-      <h2 className={`font-display text-2xl font-bold leading-snug md:text-[28px] lg:text-[32px] ${dark ? "text-white" : "text-text"}`}>
+      <h2 className={`font-display text-[26px] font-bold leading-snug md:text-[32px] lg:text-[36px] ${dark ? "text-white" : "text-text"}`}>
         {title}
       </h2>
       <span className={`accent-bar ${align === "center" ? "accent-bar-center" : ""}`} />
       {subtitle && (
-        <p className={`mt-4 text-sm leading-relaxed md:text-base ${dark ? "text-white/70" : "text-text-muted"}`}>
+        <p className={`mt-5 text-base leading-relaxed md:text-lg ${dark ? "text-white/70" : "text-text-muted"}`}>
           {subtitle}
         </p>
       )}

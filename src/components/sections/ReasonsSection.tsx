@@ -28,17 +28,17 @@ export default function ReasonsSection() {
           />
         </ScrollReveal>
 
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 md:gap-5 lg:grid-cols-7 lg:gap-6">
+        <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 md:gap-6 lg:gap-7">
           {reasons.map((reason, index) => (
-              <ScrollReveal key={index} delay={index * 0.05}>
-                <div className="card-elevated flex flex-col items-center p-4 text-center lg:p-5">
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-sm font-bold text-primary">
+              <ScrollReveal key={index} delay={index * 0.06}>
+                <div className="card-rich flex flex-col items-center p-6 text-center lg:p-8">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary/20 bg-primary/10 text-base font-bold text-primary">
                     {index + 1}
                   </div>
-                  <h3 className="mb-1 text-sm font-bold text-text">
+                  <h3 className="mb-2 text-base font-bold text-text">
                     {reason.title}
                   </h3>
-                  <p className="whitespace-pre-line text-xs leading-relaxed text-text-muted">
+                  <p className="whitespace-pre-line text-sm leading-relaxed text-text-muted">
                     {reason.description}
                   </p>
                 </div>

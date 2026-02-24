@@ -35,28 +35,25 @@ export default function FlowSection() {
           />
         </ScrollReveal>
 
-        {/* PC: Horizontal Flow */}
+        {/* PC: 3列グリッド */}
         <div className="hidden md:block">
-          <div className="grid grid-cols-6 gap-3">
+          <div className="grid grid-cols-3 gap-x-8 gap-y-10">
             {steps.map((step, index) => {
               const Icon = icons[index];
               const isLast = index === steps.length - 1;
               return (
                 <ScrollReveal key={index} delay={index * 0.08}>
                   <div className="flex flex-col items-center text-center">
-                    <div className="relative mb-3">
-                      <div className={`flex h-16 w-16 items-center justify-center rounded-full shadow-md ${isLast ? "bg-accent text-white" : "border-2 border-dashed border-primary/30 bg-primary/10 text-primary"}`}>
-                        <span className="text-lg font-bold">{index + 1}</span>
+                    <div className="relative mb-4">
+                      <div className={`flex h-20 w-20 items-center justify-center rounded-full shadow-lg ${isLast ? "bg-accent text-white" : "border-2 border-primary/20 bg-white text-primary"}`}>
+                        <span className="text-xl font-bold">{index + 1}</span>
                       </div>
-                      {index < steps.length - 1 && (
-                        <div className="absolute top-1/2 left-full h-0 w-6 -translate-y-1/2 border-t-2 border-dashed border-primary/30" />
-                      )}
                     </div>
-                    <Icon size={20} className={`mb-2 ${isLast ? "text-accent" : "text-primary"}`} />
-                    <h3 className="mb-1 text-sm font-bold text-text">
+                    <Icon size={24} className={`mb-3 ${isLast ? "text-accent" : "text-primary"}`} />
+                    <h3 className="mb-2 text-base font-bold text-text">
                       {step.title}
                     </h3>
-                    <p className="whitespace-pre-line text-xs leading-relaxed text-text-muted">
+                    <p className="whitespace-pre-line text-sm leading-relaxed text-text-muted">
                       {step.description}
                     </p>
                   </div>
@@ -68,24 +65,24 @@ export default function FlowSection() {
 
         {/* SP: Vertical Flow */}
         <div className="md:hidden">
-          <div className="relative ml-8 border-l-2 border-dashed border-primary/30 pl-8">
+          <div className="relative ml-8 border-l-2 border-dashed border-primary/40 pl-8">
             {steps.map((step, index) => {
               const Icon = icons[index];
               const isLast = index === steps.length - 1;
               return (
                 <ScrollReveal key={index} delay={index * 0.08}>
-                  <div className="relative mb-8 last:mb-0">
+                  <div className="relative mb-10 last:mb-0">
                     {/* Number Circle */}
-                    <div className={`absolute -left-[calc(2rem+1px+1.25rem)] flex h-10 w-10 items-center justify-center rounded-full text-sm font-bold shadow-md ${isLast ? "bg-accent text-white" : "border-2 border-dashed border-primary/30 bg-primary/10 text-primary"}`}>
+                    <div className={`absolute -left-[calc(2rem+1px+1.375rem)] flex h-11 w-11 items-center justify-center rounded-full text-sm font-bold shadow-md ${isLast ? "bg-accent text-white" : "border-2 border-dashed border-primary/40 bg-primary/10 text-primary"}`}>
                       {index + 1}
                     </div>
                     <div className="flex items-start gap-3">
-                      <Icon size={20} className={`mt-0.5 shrink-0 ${isLast ? "text-accent" : "text-primary"}`} />
+                      <Icon size={22} className={`mt-0.5 shrink-0 ${isLast ? "text-accent" : "text-primary"}`} />
                       <div>
-                        <h3 className="text-sm font-bold text-text">
+                        <h3 className="text-base font-bold text-text">
                           {step.title}
                         </h3>
-                        <p className="mt-0.5 text-xs leading-relaxed text-text-muted">
+                        <p className="mt-1 text-sm leading-relaxed text-text-muted">
                           {step.description.replace(/\n/g, "")}
                         </p>
                       </div>

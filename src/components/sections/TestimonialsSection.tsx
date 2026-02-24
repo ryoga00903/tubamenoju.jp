@@ -18,43 +18,43 @@ export default function TestimonialsSection() {
           />
         </ScrollReveal>
 
-        <div className="grid gap-4 md:grid-cols-3 md:gap-5 lg:gap-6">
+        <div className="grid gap-5 md:grid-cols-3 md:gap-6 lg:gap-8">
           {TESTIMONIALS.map((testimonial, index) => (
             <ScrollReveal key={index} delay={index * 0.1}>
-              <div className={`relative rounded-2xl border border-border bg-white p-6 shadow-sm transition-shadow hover:shadow-md border-l-4 ${borderColors[index % borderColors.length]}`}>
+              <div className={`relative overflow-hidden rounded-2xl border border-border-light bg-white p-7 shadow-md transition-all hover:shadow-xl hover:-translate-y-1 border-l-4 ${borderColors[index % borderColors.length]} lg:p-8`}>
                 {/* Large quote mark */}
-                <div className="pointer-events-none absolute top-3 right-4 font-display text-5xl leading-none text-primary/10">
+                <div className="pointer-events-none absolute top-3 right-4 font-display text-6xl leading-none text-primary/15">
                   &ldquo;
                 </div>
 
                 {/* Header */}
-                <div className="mb-4 flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">
+                <div className="mb-5 flex items-center gap-4">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-xl font-bold text-white shadow-sm">
                     {testimonial.initial}
                   </div>
                   <div>
-                    <div className="text-sm font-bold text-text">
+                    <div className="text-base font-bold text-text">
                       {testimonial.name}
                     </div>
-                    <div className="text-xs text-text-muted">
+                    <div className="text-sm text-text-muted">
                       {testimonial.location}
                     </div>
                   </div>
                 </div>
 
                 {/* Rating */}
-                <div className="mb-3 flex gap-0.5">
+                <div className="mb-4 flex gap-1">
                   {Array.from({ length: testimonial.rating }).map((_, i) => (
                     <Star
                       key={i}
-                      size={16}
+                      size={18}
                       className="fill-gold text-gold"
                     />
                   ))}
                 </div>
 
                 {/* Text */}
-                <p className="text-sm leading-relaxed text-text-muted">
+                <p className="text-base leading-relaxed text-text-muted">
                   {testimonial.text}
                 </p>
               </div>

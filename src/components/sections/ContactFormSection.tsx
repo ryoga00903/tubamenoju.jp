@@ -67,21 +67,21 @@ export default function ContactFormSection() {
       <div className="container-main">
         <SectionHeading
           engLabel="SIMPLE CONTACT"
-          title="簡単10秒お問い合わせ"
+          title="簡単10秒でお問い合わせ"
           subtitle="お気軽にお問い合わせください。担当者より折り返しご連絡いたします。"
         />
 
         <ScrollReveal>
           <div className="mx-auto max-w-2xl">
             {/* フォームカード */}
-            <div className="card-elevated border-2 border-accent/30 p-6 md:p-8">
+            <div className="card-rich border-2 border-accent/20 p-8 md:p-10">
               {status === "success" ? (
                 <div className="flex flex-col items-center gap-4 py-8 text-center">
                   <CheckCircle size={48} className="text-secondary" />
                   <h3 className="text-xl font-bold text-text">
                     送信が完了しました
                   </h3>
-                  <p className="text-sm text-text-muted">
+                  <p className="text-base text-text-muted">
                     お問い合わせありがとうございます。
                     <br />
                     担当者より折り返しご連絡いたします。
@@ -89,21 +89,21 @@ export default function ContactFormSection() {
                   <button
                     type="button"
                     onClick={() => setStatus("idle")}
-                    className="mt-2 text-sm font-medium text-accent underline underline-offset-4 hover:text-accent-dark"
+                    className="mt-2 text-base font-medium text-accent underline underline-offset-4 hover:text-accent-dark"
                   >
                     別のお問い合わせをする
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-7">
                   {/* お名前 */}
                   <div>
                     <label
                       htmlFor="contact-name"
-                      className="mb-2 flex items-center gap-2 text-sm font-bold text-text"
+                      className="mb-2 flex items-center gap-2 text-base font-bold text-text"
                     >
                       お名前
-                      <span className="rounded bg-accent px-1.5 py-0.5 text-[10px] font-bold text-white">
+                      <span className="rounded bg-accent px-1.5 py-0.5 text-xs font-bold text-white">
                         必須
                       </span>
                     </label>
@@ -114,7 +114,7 @@ export default function ContactFormSection() {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="例：山田 太郎"
-                      className="w-full rounded-lg border border-border bg-white px-4 py-3 text-base text-text outline-none transition-colors placeholder:text-text-light focus:border-accent focus:ring-2 focus:ring-accent/20"
+                      className="w-full rounded-xl border border-border bg-white px-5 py-4 text-lg text-text outline-none transition-all placeholder:text-text-light focus:border-accent focus:ring-2 focus:ring-accent/20"
                     />
                   </div>
 
@@ -122,10 +122,10 @@ export default function ContactFormSection() {
                   <div>
                     <label
                       htmlFor="contact-phone"
-                      className="mb-2 flex items-center gap-2 text-sm font-bold text-text"
+                      className="mb-2 flex items-center gap-2 text-base font-bold text-text"
                     >
                       電話番号
-                      <span className="rounded bg-accent px-1.5 py-0.5 text-[10px] font-bold text-white">
+                      <span className="rounded bg-accent px-1.5 py-0.5 text-xs font-bold text-white">
                         必須
                       </span>
                     </label>
@@ -136,22 +136,22 @@ export default function ContactFormSection() {
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       placeholder="例：090-1234-5678"
-                      className="w-full rounded-lg border border-border bg-white px-4 py-3 text-base text-text outline-none transition-colors placeholder:text-text-light focus:border-accent focus:ring-2 focus:ring-accent/20"
+                      className="w-full rounded-xl border border-border bg-white px-5 py-4 text-lg text-text outline-none transition-all placeholder:text-text-light focus:border-accent focus:ring-2 focus:ring-accent/20"
                     />
                   </div>
 
                   {/* ご希望内容 */}
                   <div>
-                    <p className="mb-3 text-sm font-bold text-text">
+                    <p className="mb-3 text-base font-bold text-text">
                       ご希望内容
                     </p>
                     <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
                       {SERVICE_OPTIONS.map((service) => (
                         <label
                           key={service}
-                          className={`flex cursor-pointer items-center gap-2 rounded-lg border px-3 py-2.5 text-sm transition-colors ${
+                          className={`flex cursor-pointer items-center gap-2 rounded-xl border px-4 py-3 text-base transition-all ${
                             services.includes(service)
-                              ? "border-accent bg-accent-light font-medium text-accent-dark"
+                              ? "border-accent bg-accent-light font-medium text-accent-dark shadow-sm"
                               : "border-border bg-white text-text-muted hover:border-accent/40"
                           }`}
                         >
@@ -188,8 +188,8 @@ export default function ContactFormSection() {
 
                   {/* エラーメッセージ */}
                   {status === "error" && (
-                    <div className="flex items-center gap-2 rounded-lg bg-red-50 px-4 py-3 text-sm text-red-600">
-                      <AlertCircle size={16} className="shrink-0" />
+                    <div className="flex items-center gap-2 rounded-xl bg-red-50 px-4 py-3 text-base text-red-600">
+                      <AlertCircle size={18} className="shrink-0" />
                       {errorMessage}
                     </div>
                   )}
@@ -198,16 +198,16 @@ export default function ContactFormSection() {
                   <button
                     type="submit"
                     disabled={status === "submitting"}
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-8 py-4 text-lg font-bold text-white shadow-md transition-all hover:bg-accent-dark hover:shadow-lg active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-8 py-5 text-xl font-bold text-white shadow-lg transition-all hover:bg-accent-dark hover:shadow-xl active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {status === "submitting" ? (
                       <>
-                        <Loader2 size={22} className="animate-spin" />
+                        <Loader2 size={24} className="animate-spin" />
                         送信中...
                       </>
                     ) : (
                       <>
-                        <Send size={20} />
+                        <Send size={22} />
                         無料で相談する
                       </>
                     )}
@@ -218,18 +218,18 @@ export default function ContactFormSection() {
 
             {/* 電話CTA */}
             <ScrollReveal delay={0.2}>
-              <div className="mt-6 text-center">
-                <p className="mb-2 text-sm text-text-muted">
+              <div className="mt-8 text-center">
+                <p className="mb-2 text-base text-text-muted">
                   お急ぎの方はお電話でもお気軽にどうぞ
                 </p>
                 <a
                   href={COMPANY.phoneHref}
-                  className="inline-flex items-center gap-2 text-2xl font-bold text-primary transition-colors hover:text-primary-dark md:text-3xl"
+                  className="inline-flex items-center gap-2 text-3xl font-bold text-primary transition-colors hover:text-primary-dark md:text-4xl"
                 >
-                  <Phone size={24} className="text-accent" />
+                  <Phone size={28} className="text-accent" />
                   {COMPANY.phone}
                 </a>
-                <p className="mt-1 text-xs text-text-muted">{COMPANY.hours}</p>
+                <p className="mt-1 text-sm text-text-muted">{COMPANY.hours}</p>
               </div>
             </ScrollReveal>
           </div>

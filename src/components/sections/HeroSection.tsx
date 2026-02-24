@@ -10,9 +10,9 @@ export default function HeroSection() {
     <section className="relative overflow-hidden bg-bg pt-16 md:pt-18 lg:pt-20">
       {/* Background decorative blurred circles */}
       <div className="pointer-events-none absolute inset-0 z-0">
-        <div className="absolute -top-32 -left-32 h-[500px] w-[500px] rounded-full bg-primary/5 blur-3xl" />
-        <div className="absolute -right-24 top-20 h-[400px] w-[400px] rounded-full bg-accent/5 blur-3xl" />
-        <div className="absolute bottom-0 left-1/3 h-[300px] w-[300px] rounded-full bg-gold/5 blur-3xl" />
+        <div className="absolute -top-32 -left-32 h-[500px] w-[500px] rounded-full bg-primary/8 blur-3xl" />
+        <div className="absolute -right-24 top-20 h-[400px] w-[400px] rounded-full bg-accent/8 blur-3xl" />
+        <div className="absolute bottom-0 left-1/3 h-[300px] w-[300px] rounded-full bg-gold/8 blur-3xl" />
       </div>
 
       {/* Diagonal clip decoration */}
@@ -34,7 +34,7 @@ export default function HeroSection() {
               transition={{ duration: 0.5 }}
               className="mb-5 flex flex-wrap justify-center gap-2 lg:justify-start"
             >
-              <span className="inline-flex items-center rounded-full bg-gold/10 px-4 py-1.5 text-xs font-bold text-gold">
+              <span className="inline-flex items-center rounded-full bg-gold/10 px-5 py-2 text-sm font-bold text-gold shadow-sm">
                 ✦ 千葉県No.1の施工実績
               </span>
             </motion.div>
@@ -44,9 +44,9 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="mb-3 text-sm font-semibold tracking-wide text-primary md:text-base"
+              className="mb-3 text-base font-semibold tracking-wide text-primary md:text-lg"
             >
-              千葉県を中心に、外壁塗装・屋根塗装・リフォーム専門
+              千葉県を中心に外壁塗装･屋根塗装･リフォーム専門
             </motion.p>
 
             {/* Main Heading — font-display */}
@@ -54,9 +54,9 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mb-2 font-display text-[36px] font-bold leading-[1.25] text-text sm:text-[44px] md:text-[48px] lg:text-[56px]"
+              className="mb-2 font-display text-[32px] font-bold leading-[1.25] text-text sm:text-[38px] md:text-[42px] lg:text-[48px]"
             >
-              はじめてでも、
+              はじめてでも
               <br />
               わかりやすく
               <wbr />
@@ -76,11 +76,11 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="mb-8 text-sm leading-relaxed text-text-muted md:text-base lg:max-w-lg"
+              className="mb-8 text-base leading-relaxed text-text-muted md:text-lg lg:max-w-lg"
             >
               「どこに頼めばいいの？」「どのくらい費用がかかるの？」
               <br className="hidden lg:block" />
-              そんな不安をお持ちの方も、
+              そんな不安をお持ちの方も
               <br className="hidden lg:block" />
               私たちが丁寧にわかりやすくご案内いたします。
             </motion.p>
@@ -187,9 +187,9 @@ export default function HeroSection() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.9, duration: 0.5 }}
-                className="absolute -top-4 -right-4 rounded-xl bg-white px-4 py-3 shadow-lg"
+                className="absolute -top-4 -right-4 rounded-xl bg-white px-5 py-4 shadow-xl ring-1 ring-primary/10"
               >
-                <p className="font-display text-2xl font-bold text-primary">
+                <p className="font-display text-3xl font-bold text-primary">
                   3,000<span className="text-sm">件+</span>
                 </p>
                 <p className="text-[10px] font-bold text-text-muted">累計施工実績</p>

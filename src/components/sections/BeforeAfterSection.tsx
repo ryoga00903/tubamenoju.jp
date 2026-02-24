@@ -39,7 +39,7 @@ const works = [
 
 function WorkCard({ work }: { work: (typeof works)[number] }) {
   return (
-    <div className="overflow-hidden rounded-2xl bg-white shadow-md">
+    <div className="overflow-hidden rounded-2xl bg-white shadow-lg transition-shadow hover:shadow-xl">
       <div className="grid grid-cols-2">
         {/* Before */}
         <div className="relative aspect-[4/3]">
@@ -56,7 +56,7 @@ function WorkCard({ work }: { work: (typeof works)[number] }) {
               <span className="text-sm text-gray-400">準備中</span>
             </div>
           )}
-          <div className="absolute top-3 left-3 rounded-md bg-text/70 px-3 py-1 text-xs font-bold text-white">
+          <div className="absolute top-3 left-3 rounded-lg bg-text/80 px-4 py-1.5 text-xs font-bold tracking-wide text-white">
             施工前
           </div>
         </div>
@@ -76,19 +76,19 @@ function WorkCard({ work }: { work: (typeof works)[number] }) {
               <span className="text-sm text-accent">準備中</span>
             </div>
           )}
-          <div className="absolute top-3 left-3 rounded-md bg-accent px-3 py-1 text-xs font-bold text-white">
+          <div className="absolute top-3 left-3 rounded-lg bg-accent px-4 py-1.5 text-xs font-bold tracking-wide text-white shadow-sm">
             施工後
           </div>
         </div>
       </div>
 
       {/* Info Bar */}
-      <div className="border-t border-border p-4">
-        <div className="flex items-center gap-1 text-sm font-bold text-text">
-          <MapPin size={14} className="text-primary" />
+      <div className="border-t border-border p-5">
+        <div className="flex items-center gap-1.5 text-base font-bold text-text">
+          <MapPin size={16} className="text-primary" />
           {work.location}
         </div>
-        <p className="mt-0.5 text-xs text-text-muted">{work.description}</p>
+        <p className="mt-1 text-sm text-text-muted">{work.description}</p>
       </div>
     </div>
   );
@@ -126,20 +126,20 @@ export default function BeforeAfterSection() {
             </div>
 
             {/* PC: 2つ並べて表示 */}
-            <div className="hidden gap-6 lg:grid lg:grid-cols-2">
+            <div className="hidden gap-8 lg:grid lg:grid-cols-2">
               <WorkCard work={works[currentIndex]} />
               <WorkCard work={works[nextIndex]} />
             </div>
 
             {/* Navigation */}
-            <div className="mt-4 flex items-center justify-center gap-4">
+            <div className="mt-6 flex items-center justify-center gap-4">
               <button
                 type="button"
                 onClick={goToPrev}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white text-text-muted transition-colors hover:bg-bg-warm"
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-white text-text-muted shadow-sm transition-all hover:shadow-md hover:bg-bg-warm"
                 aria-label="前の事例"
               >
-                <ChevronLeft size={20} />
+                <ChevronLeft size={22} />
               </button>
 
               <div className="flex gap-2">
@@ -148,10 +148,10 @@ export default function BeforeAfterSection() {
                     key={index}
                     type="button"
                     onClick={() => setCurrentIndex(index)}
-                    className={`h-2.5 rounded-full transition-all ${
+                    className={`h-3 rounded-full transition-all ${
                       index === currentIndex
-                        ? "w-8 bg-accent"
-                        : "w-2.5 bg-border"
+                        ? "w-10 bg-accent"
+                        : "w-3 bg-border"
                     }`}
                     aria-label={`事例 ${index + 1}`}
                   />
@@ -161,10 +161,10 @@ export default function BeforeAfterSection() {
               <button
                 type="button"
                 onClick={goToNext}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white text-text-muted transition-colors hover:bg-bg-warm"
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-white text-text-muted shadow-sm transition-all hover:shadow-md hover:bg-bg-warm"
                 aria-label="次の事例"
               >
-                <ChevronRight size={20} />
+                <ChevronRight size={22} />
               </button>
             </div>
           </div>
