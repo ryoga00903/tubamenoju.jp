@@ -110,22 +110,6 @@ export default function Header() {
                 </Component>
               );
             })}
-            <div className="mt-4 flex flex-col gap-2">
-              <a
-                href={COMPANY.phoneHref}
-                className="flex items-center justify-center gap-2 rounded-xl bg-accent px-4 py-3 font-bold text-white"
-              >
-                <Phone size={18} />
-                {COMPANY.phone}
-              </a>
-              <a
-                href={COMPANY.lineUrl}
-                className="flex items-center justify-center gap-2 rounded-xl bg-secondary px-4 py-3 font-bold text-white"
-              >
-                <MessageCircle size={18} />
-                LINEで相談する
-              </a>
-            </div>
           </nav>
         </div>
       )}
