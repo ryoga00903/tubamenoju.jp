@@ -7,7 +7,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 const worries = [
   {
     icon: Home,
-    title: "地震や台風の影響が\n気になる方",
+    title: "地震や台風の影響が気になる方",
     color: "text-accent",
     bgColor: "bg-accent-light",
   },

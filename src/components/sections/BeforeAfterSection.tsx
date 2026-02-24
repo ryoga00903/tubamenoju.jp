@@ -18,24 +18,34 @@ const works = [
     id: 2,
     location: "千葉市中央区 T様邸",
     description: "外壁塗装リフォーム",
-    before: "/images/before-after/wall-before.png",
-    after: "/images/before-after/wall-after.png",
+    before: "/images/before-after/wall-before.jpg",
+    after: "/images/before-after/wall-after.jpg",
   },
   {
     id: 3,
     location: "船橋市 M様邸",
     description: "屋根カバー工法",
-    before: "/images/before-after/slate-before.png",
-    after: "/images/before-after/slate-after.png",
+    before: "/images/before-after/slate-before.jpg",
+    after: "/images/before-after/slate-after.jpg",
   },
   {
     id: 4,
     location: "松戸市 K様邸",
     description: "金属屋根塗装",
-    before: "/images/before-after/metal-roof-before.png",
-    after: "/images/before-after/metal-roof-after.png",
+    before: "/images/before-after/metal-roof-before.jpg",
+    after: "/images/before-after/metal-roof-after.jpg",
   },
 ];
+
+// 非表示のImageで次のスライド画像をプリロードするコンポーネント
+function PreloadImages({ work }: { work: (typeof works)[number] }) {
+  return (
+    <div className="hidden">
+      <Image src={work.before} alt="" width={1} height={1} priority />
+      <Image src={work.after} alt="" width={1} height={1} priority />
+    </div>
+  );
+}
 
 function WorkCard({ work }: { work: (typeof works)[number] }) {
   return (
@@ -107,6 +117,9 @@ export default function BeforeAfterSection() {
 
   // PC用: 現在と次のインデックス
   const nextIndex = (currentIndex + 1) % works.length;
+  // プリロード用: 次に表示される可能性のあるスライドのインデックス
+  const preloadIndex1 = (currentIndex + 2) % works.length;
+  const preloadIndex2 = (currentIndex === 0 ? works.length - 1 : currentIndex - 1);
 
   return (
     <section id="works" className="section-padding bg-bg-warm">
@@ -120,6 +133,10 @@ export default function BeforeAfterSection() {
 
         <ScrollReveal>
           <div className="mx-auto max-w-5xl">
+            {/* 次のスライドの画像をプリロード */}
+            <PreloadImages work={works[preloadIndex1]} />
+            <PreloadImages work={works[preloadIndex2]} />
+
             {/* モバイル: 1つ表示 */}
             <div className="lg:hidden">
               <WorkCard work={works[currentIndex]} />
