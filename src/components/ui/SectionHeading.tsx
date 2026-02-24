@@ -7,6 +7,7 @@ interface SectionHeadingProps {
   subtitle?: string;
   align?: "center" | "left";
   dark?: boolean;
+  titleClassName?: string;
 }
 
 export default function SectionHeading({
@@ -16,6 +17,7 @@ export default function SectionHeading({
   subtitle,
   align = "center",
   dark = false,
+  titleClassName,
 }: SectionHeadingProps) {
   const alignClass = align === "center" ? "text-center" : "text-left";
 
@@ -37,7 +39,7 @@ export default function SectionHeading({
           )}
         </div>
       )}
-      <h2 className={`font-display text-[26px] font-bold leading-snug md:text-[32px] lg:text-[36px] ${dark ? "text-white" : "text-text"}`}>
+      <h2 className={`font-display text-[26px] font-bold leading-snug md:text-[32px] lg:text-[36px] ${dark ? "text-white" : "text-text"} ${titleClassName ?? ""}`}>
         {title}
       </h2>
       <span className={`accent-bar ${align === "center" ? "accent-bar-center" : ""}`} />

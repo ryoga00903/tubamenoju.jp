@@ -40,6 +40,7 @@ export default function WorriesSection() {
             engLabel="WORRIES"
             title="はじめての外壁塗装は不安ですよね"
             subtitle="そんな不安を抱えている方はあなただけではありません"
+            titleClassName="text-[24px] md:text-[32px]"
           />
         </ScrollReveal>
 

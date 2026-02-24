@@ -15,6 +15,7 @@ export default function TestimonialsSection() {
           <SectionHeading
             engLabel="VOICE"
             title="たくさんのお喜びの声をいただいています"
+            titleClassName="text-[22px] md:text-[32px]"
           />
         </ScrollReveal>
 

@@ -25,6 +25,7 @@ export default function ReasonsSection() {
             label="私たちが選ばれる理由"
             engLabel="REASONS"
             title="私たちが選ばれる7つの理由"
+            titleClassName="text-[24px] md:text-[32px]"
           />
         </ScrollReveal>
 

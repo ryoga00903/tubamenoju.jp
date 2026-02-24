@@ -30,7 +30,7 @@ export default function FinalCTASection() {
             <span className="mb-3 inline-block rounded-full bg-white/20 px-5 py-2 text-sm font-bold text-white">
               無料お見積もり
             </span>
-            <h2 className="mb-4 font-display text-[28px] font-bold text-white md:text-[34px] lg:text-[38px]">
+            <h2 className="mb-4 font-display text-[24px] font-bold text-white md:text-[34px] lg:text-[38px]">
               まずは相場確認からでも大丈夫です
             </h2>
             <p className="mb-10 text-base leading-relaxed text-white/80 md:text-lg">
