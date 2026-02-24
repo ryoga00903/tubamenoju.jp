@@ -2,6 +2,7 @@
 
 import { useCallback } from "react";
 import { Phone, MessageCircle, FileText, ShieldCheck, Users, Banknote } from "lucide-react";
+import Link from "next/link";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { COMPANY } from "@/lib/constants";
 
@@ -33,7 +34,7 @@ export default function FinalCTASection() {
               まずは相場確認からでも大丈夫です
             </h2>
             <p className="mb-10 text-base leading-relaxed text-white/80 md:text-lg">
-              お住まいのご状態を確認させていただき、しっかりとご提案いたします。
+              お住まいのご状態を確認させていただきしっかりとご提案いたします。
               <br className="hidden lg:block" />
               相見積もりも大歓迎です。
             </p>
@@ -56,14 +57,14 @@ export default function FinalCTASection() {
               <MessageCircle size={22} />
               LINEで相談する
             </a>
-            <a
+            <Link
               href="/#contact"
               onClick={handleContactClick}
               className="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-xl border-2 border-white/40 bg-white/10 px-10 py-5 text-lg font-bold text-white shadow-lg backdrop-blur-sm transition-all hover:bg-white/20 hover:shadow-2xl active:scale-[0.98] sm:w-auto"
             >
               <FileText size={22} />
               無料見積もり
-            </a>
+            </Link>
           </div>
         </ScrollReveal>
 

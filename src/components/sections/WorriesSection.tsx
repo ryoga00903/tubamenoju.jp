@@ -38,8 +38,8 @@ export default function WorriesSection() {
         <ScrollReveal>
           <SectionHeading
             engLabel="WORRIES"
-            title="はじめての外壁塗装、不安ですよね"
-            subtitle="そんな不安を抱えている方、あなただけではありません"
+            title="はじめての外壁塗装は\n不安ですよね"
+            subtitle="そんな不安を抱えている方はあなただけではありません"
           />
         </ScrollReveal>
 
@@ -68,7 +68,7 @@ export default function WorriesSection() {
               className="inline-flex items-center gap-2 rounded-full bg-primary-light px-8 py-4 text-base font-bold text-primary shadow-sm transition-all hover:bg-primary hover:text-white hover:shadow-md"
             >
               <span>✋</span>
-              私たちは、そんな不安にひとつひとつお応えします
+              私たちはそんな不安にひとつひとつお応えします
               <ArrowRight size={16} />
             </a>
           </div>

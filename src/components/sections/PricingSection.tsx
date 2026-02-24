@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { PRICING } from "@/lib/constants";
@@ -80,13 +81,13 @@ export default function PricingSection() {
 
         <ScrollReveal delay={0.3}>
           <div className="mt-10 text-center">
-            <a
+            <Link
               href="/#contact"
               className="inline-flex items-center gap-2 rounded-xl border-2 border-primary px-8 py-4 text-base font-bold text-primary shadow-sm transition-all hover:bg-primary hover:text-white hover:shadow-lg active:scale-[0.98]"
             >
               施工費用について詳しく見る
               <ArrowRight size={16} />
-            </a>
+            </Link>
           </div>
         </ScrollReveal>
       </div>
