@@ -38,7 +38,7 @@ export default function WorriesSection() {
         <ScrollReveal>
           <SectionHeading
             engLabel="WORRIES"
-            title="はじめての外壁塗装は\n不安ですよね"
+            title="はじめての外壁塗装は不安ですよね"
             subtitle="そんな不安を抱えている方はあなただけではありません"
           />
         </ScrollReveal>
