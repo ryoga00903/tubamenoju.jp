@@ -37,16 +37,6 @@ const works = [
   },
 ];
 
-// 非表示のImageで次のスライド画像をプリロードするコンポーネント
-function PreloadImages({ work }: { work: (typeof works)[number] }) {
-  return (
-    <div className="hidden">
-      <Image src={work.before} alt="" width={1} height={1} priority />
-      <Image src={work.after} alt="" width={1} height={1} priority />
-    </div>
-  );
-}
-
 function WorkCard({ work }: { work: (typeof works)[number] }) {
   return (
     <div className="overflow-hidden rounded-2xl bg-white shadow-lg transition-shadow hover:shadow-xl">
@@ -60,6 +50,7 @@ function WorkCard({ work }: { work: (typeof works)[number] }) {
               fill
               className="object-cover"
               sizes="(max-width: 768px) 50vw, 25vw"
+              loading="eager"
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center bg-gray-200">
@@ -80,6 +71,7 @@ function WorkCard({ work }: { work: (typeof works)[number] }) {
               fill
               className="object-cover"
               sizes="(max-width: 768px) 50vw, 25vw"
+              loading="eager"
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center bg-accent-light">
@@ -117,9 +109,6 @@ export default function BeforeAfterSection() {
 
   // PC用: 現在と次のインデックス
   const nextIndex = (currentIndex + 1) % works.length;
-  // プリロード用: 次に表示される可能性のあるスライドのインデックス
-  const preloadIndex1 = (currentIndex + 2) % works.length;
-  const preloadIndex2 = (currentIndex === 0 ? works.length - 1 : currentIndex - 1);
 
   return (
     <section id="works" className="section-padding bg-bg-warm">
@@ -133,19 +122,43 @@ export default function BeforeAfterSection() {
 
         <ScrollReveal>
           <div className="mx-auto max-w-5xl">
-            {/* 次のスライドの画像をプリロード */}
-            <PreloadImages work={works[preloadIndex1]} />
-            <PreloadImages work={works[preloadIndex2]} />
-
-            {/* モバイル: 1つ表示 */}
-            <div className="lg:hidden">
-              <WorkCard work={works[currentIndex]} />
+            {/* モバイル: 全スライドを常にレンダリングし、opacityで切り替え */}
+            <div className="relative lg:hidden">
+              {works.map((work, index) => (
+                <div
+                  key={work.id}
+                  className={`transition-opacity duration-300 ${
+                    index === currentIndex
+                      ? "relative opacity-100"
+                      : "pointer-events-none absolute inset-0 opacity-0"
+                  }`}
+                  aria-hidden={index !== currentIndex}
+                >
+                  <WorkCard work={work} />
+                </div>
+              ))}
             </div>
 
-            {/* PC: 2つ並べて表示 */}
-            <div className="hidden gap-8 lg:grid lg:grid-cols-2">
-              <WorkCard work={works[currentIndex]} />
-              <WorkCard work={works[nextIndex]} />
+            {/* PC: 全ペアを常にレンダリングし、opacityで切り替え */}
+            <div className="relative hidden lg:block">
+              {works.map((work, index) => {
+                const pairNext = (index + 1) % works.length;
+                const isActive = index === currentIndex;
+                return (
+                  <div
+                    key={work.id}
+                    className={`grid gap-8 lg:grid-cols-2 transition-opacity duration-300 ${
+                      isActive
+                        ? "relative opacity-100"
+                        : "pointer-events-none absolute inset-0 opacity-0"
+                    }`}
+                    aria-hidden={!isActive}
+                  >
+                    <WorkCard work={work} />
+                    <WorkCard work={works[pairNext]} />
+                  </div>
+                );
+              })}
             </div>
 
             {/* Navigation */}
