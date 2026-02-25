@@ -19,25 +19,36 @@ export default function GreetingSection() {
 
         <ScrollReveal delay={0.1}>
           <div className="mx-auto max-w-3xl">
-            <div className="card-elevated p-6 md:p-10 lg:p-12">
-              <div className="space-y-5 border-l-4 border-accent pl-5 md:pl-8">
+            <div className="card-elevated p-8 md:p-12 lg:p-16">
+              {/* キーフレーズ */}
+              <p className="mb-8 text-center font-display text-base font-bold leading-relaxed text-primary md:mb-10 md:text-lg">
+                「０をつくり、０から築く」
+                <br className="sm:hidden" />
+                <span className="text-text-muted">
+                  ── 何もないところから新たな可能性を創り出すこと
+                </span>
+              </p>
+
+              <div className="space-y-6 md:space-y-8">
                 {GREETING_MESSAGE.paragraphs.map((paragraph, index) => (
                   <p
                     key={index}
-                    className="text-sm leading-[1.9] text-text-muted md:text-base"
+                    className="text-[15px] leading-[2] text-text-muted md:text-base md:leading-[2.1]"
                   >
                     {paragraph}
                   </p>
                 ))}
               </div>
 
-              <div className="mt-10 text-right">
-                <p className="font-display text-sm text-text-muted">
-                  {COMPANY.corporateName}
-                </p>
-                <p className="mt-1 font-display text-lg font-bold text-text">
-                  代表取締役
-                </p>
+              <div className="mt-12 flex items-end justify-end gap-4 border-t border-border pt-8 md:mt-14">
+                <div className="text-right">
+                  <p className="text-sm text-text-muted">
+                    {COMPANY.corporateName}
+                  </p>
+                  <p className="mt-1 font-display text-xl font-bold tracking-wide text-text">
+                    代表取締役
+                  </p>
+                </div>
               </div>
             </div>
           </div>
