@@ -13,7 +13,7 @@ export default function AreaSection() {
             label="対応エリア"
             engLabel="AREA"
             title="千葉県を中心に対応しています"
-            titleClassName="text-[24px] md:text-[32px]"
+            titleClassName="text-[24px] md:text-[32px] lg:text-[36px]"
           />
         </ScrollReveal>
 

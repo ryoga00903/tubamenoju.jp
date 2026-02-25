@@ -41,7 +41,7 @@ export default function SectionHeading({
           )}
         </div>
       ) : null}
-      <h2 className={`font-display text-[26px] font-bold leading-snug md:text-[32px] lg:text-[36px] ${dark ? "text-white" : "text-text"} ${titleClassName ?? ""}`}>
+      <h2 className={`font-display font-bold leading-snug ${titleClassName ?? "text-[26px] md:text-[32px] lg:text-[36px]"} ${dark ? "text-white" : "text-text"}`}>
         {title}
       </h2>
       <span className={`accent-bar ${align === "center" ? "accent-bar-center" : ""}`} />

@@ -33,7 +33,7 @@ export default function FlowSection() {
             engLabel="FLOW"
             title="お問い合わせから完成までの流れ"
             subtitle="丁寧にご案内いたしますのでご安心ください"
-            titleClassName="text-[24px] md:text-[32px]"
+            titleClassName="text-[24px] md:text-[32px] lg:text-[36px]"
           />
         </ScrollReveal>
 

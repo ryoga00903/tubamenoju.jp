@@ -13,7 +13,7 @@ export default function GreetingSection() {
             label="代表挨拶"
             engLabel="GREETING"
             title={GREETING_MESSAGE.title}
-            titleClassName="text-[22px] md:text-[32px]"
+            titleClassName="text-[22px] md:text-[32px] lg:text-[36px]"
           />
         </ScrollReveal>
 
