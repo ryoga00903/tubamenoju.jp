@@ -1,9 +1,22 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { Phone, MessageCircle, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { COMPANY } from "@/lib/constants";
+
+const AFTER_IMAGES = [
+  { src: "/images/before-after/wall-after.jpg", label: "外壁塗装リフォーム" },
+  { src: "/images/before-after/roof-after.jpg", label: "屋上防水塗装リフォーム" },
+  { src: "/images/before-after/slate-after.jpg", label: "屋根カバー工法" },
+  { src: "/images/before-after/metal-roof-after.jpg", label: "金属屋根塗装" },
+] as const;
+
+function shuffleAndPick(arr: typeof AFTER_IMAGES, count: number) {
+  const shuffled = [...arr].sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, count);
+}
 
 const heroBackground = (
   <>
@@ -22,6 +35,12 @@ const heroBackground = (
 );
 
 export default function HeroSection() {
+  const [heroImages, setHeroImages] = useState(AFTER_IMAGES.slice(0, 3));
+
+  useEffect(() => {
+    setHeroImages(shuffleAndPick(AFTER_IMAGES, 3));
+  }, []);
+
   return (
     <section className="relative overflow-hidden bg-bg pt-16 md:pt-18 lg:pt-20">
       {heroBackground}
@@ -135,15 +154,15 @@ export default function HeroSection() {
                 className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-xl"
               >
                 <Image
-                  src="/images/hero/work-1.jpg"
-                  alt="外壁塗装 施工実績"
+                  src={heroImages[0].src}
+                  alt={`${heroImages[0].label} 施工実績`}
                   fill
                   className="object-cover"
                   sizes="460px"
                   priority
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent px-4 pb-3 pt-8">
-                  <p className="text-xs font-bold text-white/90">外壁塗装リフォーム</p>
+                  <p className="text-xs font-bold text-white/90">{heroImages[0].label}</p>
                 </div>
               </motion.div>
 
@@ -156,14 +175,14 @@ export default function HeroSection() {
                   className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-lg"
                 >
                   <Image
-                    src="/images/hero/work-2.jpg"
-                    alt="外壁塗装 施工実績"
+                    src={heroImages[1].src}
+                    alt={`${heroImages[1].label} 施工実績`}
                     fill
                     className="object-cover"
                     sizes="220px"
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent px-3 pb-2 pt-6">
-                    <p className="text-[10px] font-bold text-white/90">外壁塗装</p>
+                    <p className="text-[10px] font-bold text-white/90">{heroImages[1].label}</p>
                   </div>
                 </motion.div>
                 <motion.div
@@ -173,14 +192,14 @@ export default function HeroSection() {
                   className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-lg"
                 >
                   <Image
-                    src="/images/hero/work-4.jpg"
-                    alt="屋根カバー工法 施工実績"
+                    src={heroImages[2].src}
+                    alt={`${heroImages[2].label} 施工実績`}
                     fill
                     className="object-cover"
                     sizes="220px"
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent px-3 pb-2 pt-6">
-                    <p className="text-[10px] font-bold text-white/90">屋根カバー工法</p>
+                    <p className="text-[10px] font-bold text-white/90">{heroImages[2].label}</p>
                   </div>
                 </motion.div>
               </div>
