@@ -64,6 +64,18 @@ function chatbotReducer(
       };
     case "CLOSE":
       return { ...state, isOpen: false };
+    case "TOGGLE":
+      return state.isOpen
+        ? { ...state, isOpen: false }
+        : {
+            ...state,
+            isOpen: true,
+            isMinimized: false,
+            messages:
+              state.messages.length === 0
+                ? [createMessage("bot", CHATBOT_STEPS[0].botMessage)]
+                : state.messages,
+          };
     case "MINIMIZE":
       return { ...state, isMinimized: true };
     case "RESTORE":
@@ -116,12 +128,8 @@ export default function ChatbotWidget() {
   const [state, dispatch] = useReducer(chatbotReducer, initialState);
 
   const handleToggle = useCallback(() => {
-    if (state.isOpen) {
-      dispatch({ type: "CLOSE" });
-    } else {
-      dispatch({ type: "OPEN" });
-    }
-  }, [state.isOpen]);
+    dispatch({ type: "TOGGLE" });
+  }, []);
 
   return (
     <>

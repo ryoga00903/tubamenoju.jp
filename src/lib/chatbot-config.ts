@@ -1,6 +1,8 @@
 import { SERVICE_AREAS } from "@/lib/constants";
 import type { ChatStep } from "@/components/chatbot/chatbotTypes";
 
+const PHONE_PATTERN = /^[0-9\-]+$/;
+
 export const CHATBOT_STEPS: ChatStep[] = [
   {
     id: "purpose",
@@ -65,7 +67,7 @@ export const CHATBOT_STEPS: ChatStep[] = [
     validation: (value) => {
       if (typeof value === "string" && value.trim().length === 0)
         return "電話番号を入力してください";
-      if (typeof value === "string" && !/^[0-9\-]+$/.test(value.trim()))
+      if (typeof value === "string" && !PHONE_PATTERN.test(value.trim()))
         return "電話番号の形式が正しくありません";
       return null;
     },

@@ -12,6 +12,7 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const icons = [Phone, Search, FileText, Handshake, PaintBucket, ShieldCheck];
+const NEWLINE_REGEX = /\n/g;
 
 const steps = [
   { title: "お問い合わせ", description: "お電話・LINE・メールで\nお気軽にご連絡ください" },
@@ -84,7 +85,7 @@ export default function FlowSection() {
                           {step.title}
                         </h3>
                         <p className="mt-1 text-sm leading-relaxed text-text-muted">
-                          {step.description.replace(/\n/g, "")}
+                          {step.description.replace(NEWLINE_REGEX, "")}
                         </p>
                       </div>
                     </div>

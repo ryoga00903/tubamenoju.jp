@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, memo } from "react";
 import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { FAQ_ITEMS } from "@/lib/constants";
 
-function FAQItem({
+const FAQItem = memo(function FAQItem({
   question,
   answer,
   isOpen,
@@ -65,7 +65,7 @@ function FAQItem({
       </AnimatePresence>
     </div>
   );
-}
+});
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -89,7 +89,7 @@ export default function FAQSection() {
                 answer={item.answer}
                 isOpen={openIndex === index}
                 onClick={() =>
-                  setOpenIndex(openIndex === index ? null : index)
+                  setOpenIndex((prev) => (prev === index ? null : index))
                 }
               />
             </ScrollReveal>

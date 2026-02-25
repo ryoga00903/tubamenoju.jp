@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { Noto_Sans_JP, Shippori_Mincho } from "next/font/google";
-import ChatbotWidget from "@/components/chatbot/ChatbotWidget";
+import dynamic from "next/dynamic";
 import "./globals.css";
+
+const ChatbotWidget = dynamic(
+  () => import("@/components/chatbot/ChatbotWidget")
+);
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],

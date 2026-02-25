@@ -25,7 +25,7 @@ const worries = [
   },
   {
     icon: CircleDollarSign,
-    title: "見積もりが高いんじゃ\nないか不安",
+    title: "見積もりが高くないか不安",
     color: "text-accent",
     bgColor: "bg-accent-light",
   },
@@ -40,7 +40,7 @@ export default function WorriesSection() {
             engLabel="WORRIES"
             title="はじめての外壁塗装は不安ですよね"
             subtitle="そんな不安を抱えている方はあなただけではありません"
-            titleClassName="text-[22px] md:text-[32px]"
+            titleClassName="text-[18px] md:text-[28px]"
             subtitleClassName="text-sm md:text-lg"
           />
         </ScrollReveal>

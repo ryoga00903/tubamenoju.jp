@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, memo } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
@@ -37,7 +37,7 @@ const works = [
   },
 ];
 
-function WorkCard({ work }: { work: (typeof works)[number] }) {
+const WorkCard = memo(function WorkCard({ work }: { work: (typeof works)[number] }) {
   return (
     <div className="overflow-hidden rounded-2xl bg-white shadow-lg transition-shadow hover:shadow-xl">
       <div className="grid grid-cols-2">
@@ -94,7 +94,7 @@ function WorkCard({ work }: { work: (typeof works)[number] }) {
       </div>
     </div>
   );
-}
+});
 
 export default function BeforeAfterSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -132,6 +132,7 @@ export default function BeforeAfterSection() {
                       ? "relative opacity-100"
                       : "pointer-events-none absolute inset-0 opacity-0"
                   }`}
+                  style={index !== currentIndex ? { contentVisibility: "hidden" } : undefined}
                   aria-hidden={index !== currentIndex}
                 >
                   <WorkCard work={work} />
@@ -152,6 +153,7 @@ export default function BeforeAfterSection() {
                         ? "relative opacity-100"
                         : "pointer-events-none absolute inset-0 opacity-0"
                     }`}
+                    style={!isActive ? { contentVisibility: "hidden" } : undefined}
                     aria-hidden={!isActive}
                   >
                     <WorkCard work={work} />

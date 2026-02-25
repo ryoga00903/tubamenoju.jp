@@ -44,7 +44,7 @@ export const WORRIES = [
   },
   {
     icon: "yen" as const,
-    title: "見積もりが高いんじゃ\nないか不安",
+    title: "見積もりが高くないか不安",
     description: "適正価格がわからない",
   },
 ] as const;

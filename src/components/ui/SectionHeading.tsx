@@ -25,12 +25,12 @@ export default function SectionHeading({
 
   return (
     <div className={`mb-12 md:mb-14 lg:mb-16 ${alignClass}`}>
-      {engLabel && (
+      {engLabel ? (
         <p className={`mb-2 text-xs font-semibold tracking-[0.25em] uppercase ${dark ? "text-white/50" : "text-accent"}`}>
           {engLabel}
         </p>
-      )}
-      {label && (
+      ) : null}
+      {label ? (
         <div className="mb-3">
           {dark ? (
             <span className="inline-block rounded-full bg-white/20 px-5 py-2 text-sm font-medium tracking-wide text-white">
@@ -40,16 +40,16 @@ export default function SectionHeading({
             <SectionLabel>{label}</SectionLabel>
           )}
         </div>
-      )}
+      ) : null}
       <h2 className={`font-display text-[26px] font-bold leading-snug md:text-[32px] lg:text-[36px] ${dark ? "text-white" : "text-text"} ${titleClassName ?? ""}`}>
         {title}
       </h2>
       <span className={`accent-bar ${align === "center" ? "accent-bar-center" : ""}`} />
-      {subtitle && (
+      {subtitle ? (
         <p className={`mt-5 text-base leading-relaxed md:text-lg ${dark ? "text-white/70" : "text-text-muted"} ${subtitleClassName ?? ""}`}>
           {subtitle}
         </p>
-      )}
+      ) : null}
     </div>
   );
 }

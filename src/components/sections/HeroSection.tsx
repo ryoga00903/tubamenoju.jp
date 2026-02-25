@@ -5,23 +5,26 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { COMPANY } from "@/lib/constants";
 
+const heroBackground = (
+  <>
+    <div className="pointer-events-none absolute inset-0 z-0">
+      <div className="absolute -top-32 -left-32 h-[500px] w-[500px] rounded-full bg-primary/8 blur-3xl" />
+      <div className="absolute -right-24 top-20 h-[400px] w-[400px] rounded-full bg-accent/8 blur-3xl" />
+      <div className="absolute bottom-0 left-1/3 h-[300px] w-[300px] rounded-full bg-gold/8 blur-3xl" />
+    </div>
+    <div className="pointer-events-none absolute bottom-0 right-0 h-48 w-full lg:h-64">
+      <div
+        className="absolute inset-0 bg-bg-warm"
+        style={{ clipPath: "polygon(100% 30%, 100% 100%, 0 100%)" }}
+      />
+    </div>
+  </>
+);
+
 export default function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-bg pt-16 md:pt-18 lg:pt-20">
-      {/* Background decorative blurred circles */}
-      <div className="pointer-events-none absolute inset-0 z-0">
-        <div className="absolute -top-32 -left-32 h-[500px] w-[500px] rounded-full bg-primary/8 blur-3xl" />
-        <div className="absolute -right-24 top-20 h-[400px] w-[400px] rounded-full bg-accent/8 blur-3xl" />
-        <div className="absolute bottom-0 left-1/3 h-[300px] w-[300px] rounded-full bg-gold/8 blur-3xl" />
-      </div>
-
-      {/* Diagonal clip decoration */}
-      <div className="pointer-events-none absolute bottom-0 right-0 h-48 w-full lg:h-64">
-        <div
-          className="absolute inset-0 bg-bg-warm"
-          style={{ clipPath: "polygon(100% 30%, 100% 100%, 0 100%)" }}
-        />
-      </div>
+      {heroBackground}
 
       <div className="container-main relative z-10">
         <div className="flex flex-col items-center py-12 md:py-16 lg:flex-row lg:items-center lg:gap-16 lg:py-24">

@@ -168,7 +168,7 @@ export default function ContactFormSection() {
                                 : "border-border bg-white"
                             }`}
                           >
-                            {services.includes(service) && (
+                            {services.includes(service) ? (
                               <svg
                                 viewBox="0 0 12 12"
                                 className="h-3 w-3"
@@ -178,7 +178,7 @@ export default function ContactFormSection() {
                               >
                                 <path d="M2 6l3 3 5-5" />
                               </svg>
-                            )}
+                            ) : null}
                           </span>
                           <span className="leading-tight">{service}</span>
                         </label>
@@ -187,12 +187,12 @@ export default function ContactFormSection() {
                   </div>
 
                   {/* エラーメッセージ */}
-                  {status === "error" && (
+                  {status === "error" ? (
                     <div className="flex items-center gap-2 rounded-xl bg-red-50 px-4 py-3 text-base text-red-600">
                       <AlertCircle size={18} className="shrink-0" />
                       {errorMessage}
                     </div>
-                  )}
+                  ) : null}
 
                   {/* 送信ボタン */}
                   <button

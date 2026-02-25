@@ -29,11 +29,11 @@ export default function PricingSection() {
                 }`}
               >
                 {/* Popular badge */}
-                {plan.highlighted && (
+                {plan.highlighted ? (
                   <div className="absolute -right-8 top-4 rotate-45 bg-gold px-10 py-1 text-xs font-bold text-white shadow-sm">
                     人気
                   </div>
-                )}
+                ) : null}
 
                 {/* Label */}
                 <div

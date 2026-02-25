@@ -54,11 +54,11 @@ export default function StepConfirmation({
         </div>
 
         {/* エラーメッセージ */}
-        {error && (
+        {error ? (
           <div className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-xs text-red-600">
             {error}
           </div>
-        )}
+        ) : null}
 
         {/* ボタン */}
         <div className="mt-4 flex gap-2">

@@ -84,7 +84,7 @@ export default function Header() {
           <button
             type="button"
             className="flex h-10 w-10 items-center justify-center rounded-lg text-text-muted md:hidden"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
             aria-label="メニュー"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

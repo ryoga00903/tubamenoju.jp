@@ -6,6 +6,13 @@ import Link from "next/link";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { COMPANY } from "@/lib/constants";
 
+const decorativeCircles = (
+  <>
+    <div className="absolute -top-20 -right-20 h-80 w-80 rounded-full bg-white/8" />
+    <div className="absolute -bottom-16 -left-16 h-64 w-64 rounded-full bg-white/8" />
+  </>
+);
+
 export default function FinalCTASection() {
   const handleContactClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
     const el = document.getElementById("contact");
@@ -20,9 +27,7 @@ export default function FinalCTASection() {
       id="final-cta"
       className="relative overflow-hidden bg-gradient-to-br from-primary-dark to-primary py-20 md:py-24 lg:py-28"
     >
-      {/* Decorative circles */}
-      <div className="absolute -top-20 -right-20 h-80 w-80 rounded-full bg-white/8" />
-      <div className="absolute -bottom-16 -left-16 h-64 w-64 rounded-full bg-white/8" />
+      {decorativeCircles}
 
       <div className="container-main relative z-10">
         <ScrollReveal>

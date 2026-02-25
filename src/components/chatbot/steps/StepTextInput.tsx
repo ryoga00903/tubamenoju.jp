@@ -58,9 +58,9 @@ export default function StepTextInput({
           className="w-full rounded-lg border border-border bg-white px-4 py-3 text-sm text-text outline-none focus:border-accent focus:ring-2 focus:ring-accent/20"
           autoFocus
         />
-        {error && (
+        {error ? (
           <p className="mt-2 text-xs text-red-600">{error}</p>
-        )}
+        ) : null}
         <button
           onClick={handleNext}
           disabled={value.trim().length === 0}

@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MobileFixedCTA from "@/components/layout/MobileFixedCTA";
@@ -6,14 +7,21 @@ import WorriesSection from "@/components/sections/WorriesSection";
 import ReasonsSection from "@/components/sections/ReasonsSection";
 import PromisesSection from "@/components/sections/PromisesSection";
 import PricingSection from "@/components/sections/PricingSection";
-import BeforeAfterSection from "@/components/sections/BeforeAfterSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import FlowSection from "@/components/sections/FlowSection";
-import FAQSection from "@/components/sections/FAQSection";
 import AreaSection from "@/components/sections/AreaSection";
-import ContactFormSection from "@/components/sections/ContactFormSection";
 import FinalCTASection from "@/components/sections/FinalCTASection";
 import { getLocalBusinessJsonLd, getFaqJsonLd } from "@/lib/jsonld";
+
+const BeforeAfterSection = dynamic(
+  () => import("@/components/sections/BeforeAfterSection")
+);
+const FAQSection = dynamic(
+  () => import("@/components/sections/FAQSection")
+);
+const ContactFormSection = dynamic(
+  () => import("@/components/sections/ContactFormSection")
+);
 
 export default function Home() {
   return (

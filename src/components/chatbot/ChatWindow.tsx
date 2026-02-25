@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import ChatHeader from "./ChatHeader";
 import ChatMessageList from "./ChatMessageList";
 import { CHATBOT_STEPS, CHATBOT_CONFIG } from "@/lib/chatbot-config";
@@ -17,18 +17,7 @@ export default function ChatWindow({ state, dispatch }: ChatWindowProps) {
       ? CHATBOT_STEPS[state.currentStepIndex]
       : null;
 
-  // タイピングインジケーター後にBotメッセージを表示
-  useEffect(() => {
-    if (!state.isTyping) return;
-    const timer = setTimeout(() => {
-      if (currentStep) {
-        dispatch({ type: "ADD_BOT_MESSAGE", payload: currentStep.botMessage });
-      }
-    }, 600);
-    return () => clearTimeout(timer);
-  }, [state.isTyping, currentStep, dispatch]);
-
-  // ステップ回答ハンドラ
+  // ステップ回答ハンドラ（タイピング後のBotメッセージ表示もここで管理）
   const handleAnswer = useCallback(
     (displayText: string, value?: string | string[]) => {
       if (!currentStep) return;
@@ -40,18 +29,28 @@ export default function ChatWindow({ state, dispatch }: ChatWindowProps) {
           displayText,
         },
       });
+      const nextIndex = state.currentStepIndex + 1;
+      const nextStep = CHATBOT_STEPS[nextIndex];
+      if (nextStep) {
+        setTimeout(() => {
+          dispatch({ type: "ADD_BOT_MESSAGE", payload: nextStep.botMessage });
+        }, 600);
+      }
     },
-    [currentStep, dispatch]
+    [currentStep, state.currentStepIndex, dispatch]
   );
 
-  // 送信ハンドラ
+  // 送信ハンドラ（useRef で最新の formData を参照し、コールバックを安定化）
+  const formDataRef = useRef(state.formData);
+  formDataRef.current = state.formData;
+
   const handleSubmit = useCallback(async () => {
     dispatch({ type: "SUBMIT_START" });
     try {
       const res = await fetch("/api/chatbot", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(state.formData),
+        body: JSON.stringify(formDataRef.current),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "送信に失敗しました");
@@ -66,7 +65,7 @@ export default function ChatWindow({ state, dispatch }: ChatWindowProps) {
           err instanceof Error ? err.message : "送信に失敗しました",
       });
     }
-  }, [state.formData, dispatch]);
+  }, [dispatch]);
 
   // リセットハンドラ
   const handleReset = useCallback(() => {

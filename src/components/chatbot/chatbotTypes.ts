@@ -44,6 +44,7 @@ export interface ChatbotState {
 export type ChatbotAction =
   | { type: "OPEN" }
   | { type: "CLOSE" }
+  | { type: "TOGGLE" }
   | { type: "MINIMIZE" }
   | { type: "RESTORE" }
   | { type: "ADD_BOT_MESSAGE"; payload: string }

@@ -10,20 +10,20 @@ interface ScrollRevealProps {
   direction?: "up" | "left" | "right" | "none";
 }
 
+const DIRECTION_MAP = {
+  up: { y: 30, x: 0 },
+  left: { y: 0, x: -30 },
+  right: { y: 0, x: 30 },
+  none: { y: 0, x: 0 },
+} as const;
+
 export default function ScrollReveal({
   children,
   className = "",
   delay = 0,
   direction = "up",
 }: ScrollRevealProps) {
-  const directionMap = {
-    up: { y: 30, x: 0 },
-    left: { y: 0, x: -30 },
-    right: { y: 0, x: 30 },
-    none: { y: 0, x: 0 },
-  };
-
-  const { x, y } = directionMap[direction];
+  const { x, y } = DIRECTION_MAP[direction];
 
   return (
     <motion.div

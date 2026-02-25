@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import { motion } from "framer-motion";
 import type { ChatMessage } from "./chatbotTypes";
 
@@ -14,8 +15,9 @@ function formatTime(date: Date): string {
   });
 }
 
-export default function ChatBubble({ message }: ChatBubbleProps) {
+const ChatBubble = memo(function ChatBubble({ message }: ChatBubbleProps) {
   const isBot = message.sender === "bot";
+  const lines = message.text.split("\n");
 
   return (
     <motion.div
@@ -25,7 +27,7 @@ export default function ChatBubble({ message }: ChatBubbleProps) {
       className={`flex items-start gap-2 ${isBot ? "" : "justify-end"}`}
     >
       {/* Botアバター */}
-      {isBot && (
+      {isBot ? (
         <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10">
           <svg
             width="16"
@@ -42,7 +44,7 @@ export default function ChatBubble({ message }: ChatBubbleProps) {
             <polyline points="9 22 9 12 15 12 15 22" />
           </svg>
         </div>
-      )}
+      ) : null}
 
       <div className={`max-w-[80%] ${isBot ? "" : "text-right"}`}>
         {/* メッセージバブル */}
@@ -53,10 +55,10 @@ export default function ChatBubble({ message }: ChatBubbleProps) {
               : "rounded-tr-sm bg-primary text-white"
           }`}
         >
-          {message.text.split("\n").map((line, i) => (
+          {lines.map((line, i) => (
             <span key={i}>
               {line}
-              {i < message.text.split("\n").length - 1 && <br />}
+              {i < lines.length - 1 ? <br /> : null}
             </span>
           ))}
         </div>
@@ -71,4 +73,6 @@ export default function ChatBubble({ message }: ChatBubbleProps) {
       </div>
     </motion.div>
   );
-}
+});
+
+export default ChatBubble;
