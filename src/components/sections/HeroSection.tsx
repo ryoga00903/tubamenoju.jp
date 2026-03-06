@@ -78,7 +78,7 @@ function LaurelWreath() {
 export default function HeroSection() {
   const shuffled = useRef(false);
   const [heroImages, setHeroImages] = useState(DEFAULT_IMAGES);
-  const [baPair, setBaPair] = useState(BEFORE_AFTER_PAIRS[0]);
+  const [baPair, setBaPair] = useState<{ before: string; after: string }>(BEFORE_AFTER_PAIRS[0]);
 
   useEffect(() => {
     if (!shuffled.current) {
