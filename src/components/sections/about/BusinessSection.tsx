@@ -12,7 +12,16 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { BUSINESS_CATEGORIES } from "@/lib/constants";
 
-const icons = [Hammer, PaintBucket, ShieldAlert, Building2, TreePine, Recycle];
+import type { LucideIcon } from "lucide-react";
+
+const iconMap: Record<string, LucideIcon> = {
+  "解体工事": Hammer,
+  "内装工事": PaintBucket,
+  "アスベスト除去": ShieldAlert,
+  "新築・修繕工事": Building2,
+  "外構・造園工事": TreePine,
+  "リユース事業": Recycle,
+};
 
 export default function BusinessSection() {
   return (
@@ -28,9 +37,9 @@ export default function BusinessSection() {
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5 lg:grid-cols-3 lg:gap-6">
           {BUSINESS_CATEGORIES.map((category, index) => {
-            const Icon = icons[index];
+            const Icon = iconMap[category.title] ?? Hammer;
             return (
-              <ScrollReveal key={index} delay={index * 0.08}>
+              <ScrollReveal key={category.title} delay={index * 0.08}>
                 <div className="card-elevated h-full p-6">
                   <div className="mb-4 flex items-center gap-3">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10">

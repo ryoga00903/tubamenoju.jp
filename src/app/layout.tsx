@@ -21,7 +21,7 @@ const shipporiMincho = Shippori_Mincho({
   display: "swap",
 });
 
-const BASE_URL = "https://tubamenoju.jp";
+import { BASE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),

@@ -1,7 +1,8 @@
 import { SERVICE_AREAS } from "@/lib/constants";
 import type { ChatStep } from "@/components/chatbot/chatbotTypes";
 
-const PHONE_PATTERN = /^[0-9\-]+$/;
+// 日本の電話番号形式（固定電話・携帯電話）
+const PHONE_PATTERN = /^0\d{1,4}-?\d{1,4}-?\d{3,4}$/;
 
 export const CHATBOT_STEPS: ChatStep[] = [
   {

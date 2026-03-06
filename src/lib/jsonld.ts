@@ -1,6 +1,5 @@
 import { COMPANY, FAQ_ITEMS } from "./constants";
-
-const BASE_URL = "https://tubamenoju.jp";
+import { BASE_URL } from "./config";
 
 // LocalBusiness 構造化データ
 export function getLocalBusinessJsonLd() {

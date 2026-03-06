@@ -1,6 +1,6 @@
 export const COMPANY = {
   name: "株式会社G.S.C",
-  nameEn: "Tsubame no Ju",
+  nameEn: "G.S.C Co., Ltd.",
   corporateName: "株式会社G.S.C",
   tagline: "千葉県・外壁塗装・屋根塗装・リフォーム",
   phone: "047-338-7011",

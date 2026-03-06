@@ -1,11 +1,19 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import { rateLimit } from "@/lib/rate-limit";
+import { sendEmail } from "@/lib/send-email";
 
 export async function POST(request: Request) {
+  const { success } = rateLimit(request);
+  if (!success) {
+    return NextResponse.json(
+      { error: "リクエストが多すぎます。しばらくしてからお試しください。" },
+      { status: 429 }
+    );
+  }
+
   try {
     const { name, phone, services } = await request.json();
 
-    // バリデーション
     if (!name || typeof name !== "string" || name.trim().length === 0) {
       return NextResponse.json(
         { error: "お名前は必須です" },
@@ -20,27 +28,12 @@ export async function POST(request: Request) {
       );
     }
 
-    const apiKey = process.env.RESEND_API_KEY;
-    const contactEmail = process.env.CONTACT_EMAIL;
-
-    if (!apiKey || !contactEmail) {
-      console.error("RESEND_API_KEY または CONTACT_EMAIL が設定されていません");
-      return NextResponse.json(
-        { error: "メール送信の設定が完了していません。管理者にお問い合わせください。" },
-        { status: 500 }
-      );
-    }
-
-    const resend = new Resend(apiKey);
-
     const serviceList =
       Array.isArray(services) && services.length > 0
         ? services.join("、")
         : "指定なし";
 
-    const { error } = await resend.emails.send({
-      from: "株式会社G.S.C お問い合わせ <onboarding@resend.dev>",
-      to: contactEmail,
+    await sendEmail({
       subject: `【お問い合わせ】${name.trim()}様より`,
       text: [
         "━━━━━━━━━━━━━━━━━━━━",
@@ -56,20 +49,13 @@ export async function POST(request: Request) {
       ].join("\n"),
     });
 
-    if (error) {
-      console.error("Resend送信エラー:", error);
-      return NextResponse.json(
-        { error: "メール送信に失敗しました。しばらくしてからお試しください。" },
-        { status: 500 }
-      );
-    }
-
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error("お問い合わせAPI エラー:", err);
-    return NextResponse.json(
-      { error: "サーバーエラーが発生しました" },
-      { status: 500 }
-    );
+    const message =
+      err instanceof Error && err.message.includes("設定されていません")
+        ? "メール送信の設定が完了していません。管理者にお問い合わせください。"
+        : "メール送信に失敗しました。しばらくしてからお試しください。";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

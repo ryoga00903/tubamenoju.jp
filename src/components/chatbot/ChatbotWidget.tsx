@@ -1,9 +1,8 @@
 "use client";
 
-import { useReducer, useCallback } from "react";
+import { useReducer, useCallback, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
-import Image from "next/image";
 import ChatWindow from "./ChatWindow";
 import { CHATBOT_STEPS } from "@/lib/chatbot-config";
 import type {
@@ -13,16 +12,20 @@ import type {
   ChatMessage,
 } from "./chatbotTypes";
 
-let messageId = 0;
-function createMessage(
-  sender: "bot" | "user",
-  text: string
-): ChatMessage {
+function createMessageFactory() {
+  let id = 0;
   return {
-    id: `msg-${++messageId}`,
-    sender,
-    text,
-    timestamp: new Date(),
+    create(sender: "bot" | "user", text: string): ChatMessage {
+      return {
+        id: `msg-${++id}`,
+        sender,
+        text,
+        timestamp: new Date(),
+      };
+    },
+    reset() {
+      id = 0;
+    },
   };
 }
 
@@ -47,85 +50,94 @@ const initialState: ChatbotState = {
   error: null,
 };
 
-function chatbotReducer(
-  state: ChatbotState,
-  action: ChatbotAction
-): ChatbotState {
-  switch (action.type) {
-    case "OPEN":
-      return {
-        ...state,
-        isOpen: true,
-        isMinimized: false,
-        messages:
-          state.messages.length === 0
-            ? [createMessage("bot", CHATBOT_STEPS[0].botMessage)]
-            : state.messages,
-      };
-    case "CLOSE":
-      return { ...state, isOpen: false };
-    case "TOGGLE":
-      return state.isOpen
-        ? { ...state, isOpen: false }
-        : {
-            ...state,
-            isOpen: true,
-            isMinimized: false,
-            messages:
-              state.messages.length === 0
-                ? [createMessage("bot", CHATBOT_STEPS[0].botMessage)]
-                : state.messages,
-          };
-    case "MINIMIZE":
-      return { ...state, isMinimized: true };
-    case "RESTORE":
-      return { ...state, isMinimized: false };
-    case "ADD_BOT_MESSAGE":
-      return {
-        ...state,
-        messages: [...state.messages, createMessage("bot", action.payload)],
-        isTyping: false,
-      };
-    case "SET_TYPING":
-      return { ...state, isTyping: action.payload };
-    case "ANSWER_STEP": {
-      const { fieldKey, value, displayText } = action.payload;
-      const newFormData = { ...state.formData, [fieldKey]: value };
-      const userMessage = createMessage("user", displayText);
-      const nextIndex = state.currentStepIndex + 1;
-      return {
-        ...state,
-        formData: newFormData,
-        currentStepIndex: nextIndex,
-        messages: [...state.messages, userMessage],
-        isTyping: true,
-      };
+function createChatbotReducer(
+  msgFactory: ReturnType<typeof createMessageFactory>
+) {
+  return function chatbotReducer(
+    state: ChatbotState,
+    action: ChatbotAction
+  ): ChatbotState {
+    switch (action.type) {
+      case "OPEN":
+        return {
+          ...state,
+          isOpen: true,
+          isMinimized: false,
+          messages:
+            state.messages.length === 0
+              ? [msgFactory.create("bot", CHATBOT_STEPS[0].botMessage)]
+              : state.messages,
+        };
+      case "CLOSE":
+        return { ...state, isOpen: false };
+      case "TOGGLE":
+        return state.isOpen
+          ? { ...state, isOpen: false }
+          : {
+              ...state,
+              isOpen: true,
+              isMinimized: false,
+              messages:
+                state.messages.length === 0
+                  ? [msgFactory.create("bot", CHATBOT_STEPS[0].botMessage)]
+                  : state.messages,
+            };
+      case "MINIMIZE":
+        return { ...state, isMinimized: true };
+      case "RESTORE":
+        return { ...state, isMinimized: false };
+      case "ADD_BOT_MESSAGE":
+        return {
+          ...state,
+          messages: [
+            ...state.messages,
+            msgFactory.create("bot", action.payload),
+          ],
+          isTyping: false,
+        };
+      case "SET_TYPING":
+        return { ...state, isTyping: action.payload };
+      case "ANSWER_STEP": {
+        const { fieldKey, value, displayText } = action.payload;
+        const newFormData = { ...state.formData, [fieldKey]: value };
+        const userMessage = msgFactory.create("user", displayText);
+        const nextIndex = state.currentStepIndex + 1;
+        return {
+          ...state,
+          formData: newFormData,
+          currentStepIndex: nextIndex,
+          messages: [...state.messages, userMessage],
+          isTyping: true,
+        };
+      }
+      case "SUBMIT_START":
+        return { ...state, isSubmitting: true, error: null };
+      case "SUBMIT_SUCCESS":
+        return {
+          ...state,
+          isSubmitting: false,
+          isCompleted: true,
+          messages: [
+            ...state.messages,
+            msgFactory.create("bot", action.payload),
+          ],
+        };
+      case "SUBMIT_ERROR":
+        return { ...state, isSubmitting: false, error: action.payload };
+      case "RESET": {
+        msgFactory.reset();
+        return { ...initialState };
+      }
+      default:
+        return state;
     }
-    case "SUBMIT_START":
-      return { ...state, isSubmitting: true, error: null };
-    case "SUBMIT_SUCCESS":
-      return {
-        ...state,
-        isSubmitting: false,
-        isCompleted: true,
-        messages: [
-          ...state.messages,
-          createMessage("bot", action.payload),
-        ],
-      };
-    case "SUBMIT_ERROR":
-      return { ...state, isSubmitting: false, error: action.payload };
-    case "RESET": {
-      messageId = 0;
-      return { ...initialState };
-    }
-    default:
-      return state;
-  }
+  };
 }
 
 export default function ChatbotWidget() {
-  const [state, dispatch] = useReducer(chatbotReducer, initialState);
+  const msgFactory = useRef(createMessageFactory()).current;
+  const reducer = useRef(createChatbotReducer(msgFactory)).current;
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const handleToggle = useCallback(() => {
     dispatch({ type: "TOGGLE" });

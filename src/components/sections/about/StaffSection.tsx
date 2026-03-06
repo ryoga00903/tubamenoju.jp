@@ -35,7 +35,7 @@ export default function StaffSection() {
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
-              <ScrollReveal key={index} delay={index * 0.1}>
+              <ScrollReveal key={feature.title} delay={index * 0.1}>
                 <div className="card-elevated h-full p-6 md:p-8">
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
                     <Icon size={24} className="text-primary" />

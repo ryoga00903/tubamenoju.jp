@@ -19,9 +19,9 @@ export default function CompanyInfoSection() {
         <ScrollReveal delay={0.1}>
           <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl bg-white shadow-md">
             <dl>
-              {COMPANY_INFO_TABLE.map((item, index) => (
+              {COMPANY_INFO_TABLE.map((item) => (
                 <div
-                  key={index}
+                  key={item.label}
                   className="flex flex-col border-b border-border last:border-b-0 md:flex-row"
                 >
                   <dt className="shrink-0 bg-primary-light px-5 py-3 text-sm font-bold text-primary md:w-48 md:px-6 md:py-4">

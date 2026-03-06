@@ -9,8 +9,7 @@ import BusinessSection from "@/components/sections/about/BusinessSection";
 import StaffSection from "@/components/sections/about/StaffSection";
 import FinalCTASection from "@/components/sections/FinalCTASection";
 import { getLocalBusinessJsonLd, getBreadcrumbJsonLd } from "@/lib/jsonld";
-
-const BASE_URL = "https://tubamenoju.jp";
+import { BASE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "会社概要",
