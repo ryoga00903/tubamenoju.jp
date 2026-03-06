@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Sans_JP, Shippori_Mincho } from "next/font/google";
-import dynamic from "next/dynamic";
+import ChatbotLoader from "@/components/chatbot/ChatbotLoader";
 import "./globals.css";
-
-const ChatbotWidget = dynamic(
-  () => import("@/components/chatbot/ChatbotWidget")
-);
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
@@ -77,7 +73,7 @@ export default function RootLayout({
     <html lang="ja">
       <body className={`${notoSansJP.variable} ${shipporiMincho.variable} font-sans antialiased`}>
         {children}
-        <ChatbotWidget />
+        <ChatbotLoader />
       </body>
     </html>
   );

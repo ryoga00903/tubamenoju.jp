@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useState } from "react";
 import { Phone, MessageCircle, FileText, Mail, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -43,8 +43,6 @@ const heroBackground = (
 
 const AREA_CITIES = ["市川市", "松戸市", "流山市"] as const;
 
-const DEFAULT_IMAGES = AFTER_IMAGES.slice(0, 3);
-
 /* 月桂冠SVG（満足度バッジ用） */
 function LaurelWreath() {
   return (
@@ -76,19 +74,8 @@ function LaurelWreath() {
 }
 
 export default function HeroSection() {
-  const shuffled = useRef(false);
-  const [heroImages, setHeroImages] = useState(DEFAULT_IMAGES);
-  const [baPair, setBaPair] = useState<{ before: string; after: string }>(BEFORE_AFTER_PAIRS[0]);
-
-  useEffect(() => {
-    if (!shuffled.current) {
-      shuffled.current = true;
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setHeroImages(shuffleAndPick(AFTER_IMAGES, 3));
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setBaPair(shuffleAndPick(BEFORE_AFTER_PAIRS, 1)[0]);
-    }
-  }, []);
+  const [heroImages] = useState(() => shuffleAndPick(AFTER_IMAGES, 3));
+  const [baPair] = useState(() => shuffleAndPick(BEFORE_AFTER_PAIRS, 1)[0]);
 
   return (
     <section className="relative overflow-hidden bg-bg pt-16 md:pt-18 lg:pt-20">

@@ -1,5 +1,3 @@
-"use client";
-
 import { Check } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import SectionHeading from "@/components/ui/SectionHeading";

@@ -1,5 +1,3 @@
-"use client";
-
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { SERVICE_AREAS } from "@/lib/constants";
