@@ -39,8 +39,6 @@ body {
 .section-padding {
   padding-top: 88px;
   padding-bottom: 88px;
-  content-visibility: auto;
-  contain-intrinsic-size: 0 600px;
 }
 
 @media (min-width: 768px) {
