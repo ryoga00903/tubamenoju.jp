@@ -67,8 +67,8 @@ export default function ContactFormSection() {
       <div className="container-main">
         <SectionHeading
           engLabel="SIMPLE CONTACT"
-          title="簡単10秒でお問い合わせ"
-          subtitle="お気軽にお問い合わせください。担当者より折り返しご連絡いたします。"
+          title="お問い合わせ"
+          subtitle="以下のフォームよりお問い合わせください。担当者より折り返しご連絡いたします。"
         />
 
         <ScrollReveal>
@@ -208,7 +208,7 @@ export default function ContactFormSection() {
                     ) : (
                       <>
                         <Send size={22} />
-                        無料で相談する
+                        送信する
                       </>
                     )}
                   </button>
@@ -220,7 +220,7 @@ export default function ContactFormSection() {
             <ScrollReveal delay={0.2}>
               <div className="mt-8 text-center">
                 <p className="mb-2 text-base text-text-muted">
-                  お急ぎの方はお電話でもお気軽にどうぞ
+                  お急ぎの方はお電話でも承ります
                 </p>
                 <a
                   href={COMPANY.phoneHref}

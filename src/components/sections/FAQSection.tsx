@@ -75,7 +75,6 @@ export default function FAQSection() {
       <div className="container-main">
         <ScrollReveal>
           <SectionHeading
-            label="よくあるご質問"
             engLabel="FAQ"
             title="よくいただくご質問"
           />

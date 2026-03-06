@@ -30,10 +30,10 @@ export default function Header() {
           <a href="/" className="flex items-center">
             <Image
               src="/images/logo.png"
-              alt="つばめの住"
-              width={260}
-              height={87}
-              className="h-16 w-auto lg:h-20"
+              alt="G.S.C Co.,Ltd."
+              width={241}
+              height={212}
+              className="h-10 w-auto lg:h-12"
               priority
             />
           </a>

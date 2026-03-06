@@ -14,7 +14,7 @@ export default function PricingSection() {
           <SectionHeading
             engLabel="PRICING"
             title="外壁塗装の価格目安"
-            subtitle="お住まいの大きさや状態により異なります。まずはお気軽にお見積もりをご依頼ください。"
+            subtitle="外壁塗装の塗料グレード別の価格目安です。お住まいの状態に合わせてご提案いたします。"
           />
         </ScrollReveal>
 
@@ -73,6 +73,14 @@ export default function PricingSection() {
                   }`}
                 >
                   （{plan.tax}・{plan.note}）
+                </p>
+
+                <p
+                  className={`mt-4 text-sm font-medium ${
+                    plan.highlighted ? "text-white/90" : "text-primary"
+                  }`}
+                >
+                  {plan.durability}
                 </p>
               </div>
             </ScrollReveal>

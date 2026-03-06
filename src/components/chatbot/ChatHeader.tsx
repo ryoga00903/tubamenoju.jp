@@ -15,7 +15,7 @@ export default function ChatHeader({ dispatch }: ChatHeaderProps) {
       <div className="flex items-center gap-3">
         {/* アバター */}
         <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/20 overflow-hidden">
-          <Image src="/images/logo.png" alt="つばめの住" width={32} height={32} className="h-7 w-7 object-contain brightness-0 invert" />
+          <Image src="/images/logo.png" alt="G.S.C Co.,Ltd." width={32} height={32} className="h-7 w-7 object-contain brightness-0 invert" />
         </div>
         <div>
           <div className="text-sm font-bold leading-tight">

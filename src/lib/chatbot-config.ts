@@ -8,7 +8,7 @@ export const CHATBOT_STEPS: ChatStep[] = [
     id: "purpose",
     type: "buttons",
     botMessage:
-      "こんにちは！「つばめの住」です。\nお問い合わせありがとうございます。\n\nどのようなご用件でしょうか？",
+      "こんにちは！「株式会社G.S.C」です。\nお問い合わせありがとうございます。\n\nどのようなご用件でしょうか？",
     fieldKey: "purpose",
     options: ["見積もりを取りたい", "相談したい", "その他"],
   },
@@ -81,7 +81,7 @@ export const CHATBOT_STEPS: ChatStep[] = [
 ];
 
 export const CHATBOT_CONFIG = {
-  botName: "つばめの住",
+  botName: "株式会社G.S.C",
   botSubtitle: "お問い合わせアシスタント",
   completionMessage:
     "お問い合わせありがとうございます！\n担当者より折り返しご連絡いたします。\nお急ぎの場合は 047-338-7011 までお電話ください。",

@@ -9,17 +9,17 @@ import SectionHeading from "@/components/ui/SectionHeading";
 const works = [
   {
     id: 1,
-    location: "千葉市稲毛区 S様邸",
-    description: "屋上防水塗装リフォーム",
-    before: "/images/before-after/roof-before.jpg",
-    after: "/images/before-after/roof-after.jpg",
-  },
-  {
-    id: 2,
     location: "千葉市中央区 T様邸",
     description: "外壁塗装リフォーム",
     before: "/images/before-after/wall-before.jpg",
     after: "/images/before-after/wall-after.jpg",
+  },
+  {
+    id: 2,
+    location: "松戸市 K様邸",
+    description: "金属屋根塗装",
+    before: "/images/before-after/metal-roof-before.jpg",
+    after: "/images/before-after/metal-roof-after.jpg",
   },
   {
     id: 3,
@@ -30,26 +30,36 @@ const works = [
   },
   {
     id: 4,
-    location: "松戸市 K様邸",
-    description: "金属屋根塗装",
-    before: "/images/before-after/metal-roof-before.jpg",
-    after: "/images/before-after/metal-roof-after.jpg",
+    location: "千葉市稲毛区 S様邸",
+    description: "屋上防水塗装リフォーム",
+    before: "/images/before-after/roof-before.jpg",
+    after: "/images/before-after/roof-after.jpg",
   },
 ];
 
 const WorkCard = memo(function WorkCard({ work }: { work: (typeof works)[number] }) {
   return (
     <div className="overflow-hidden rounded-2xl bg-white shadow-lg transition-shadow hover:shadow-xl">
-      <div className="grid grid-cols-2">
+      {/* 情報バー（上部） */}
+      <div className="flex items-center gap-3 border-b border-border px-5 py-4 md:px-6">
+        <MapPin size={18} className="shrink-0 text-primary" />
+        <div>
+          <p className="text-base font-bold text-text">{work.location}</p>
+          <p className="text-sm text-text-muted">{work.description}</p>
+        </div>
+      </div>
+
+      {/* Before / After 画像 */}
+      <div className="grid grid-cols-2 gap-1 bg-border/30 p-1">
         {/* Before */}
-        <div className="relative aspect-[4/3]">
+        <div className="relative aspect-[3/2] overflow-hidden rounded-lg">
           {work.before ? (
             <Image
               src={work.before}
               alt={`${work.location} 施工前`}
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 50vw, 25vw"
+              sizes="(max-width: 768px) 45vw, 30vw"
               loading="eager"
             />
           ) : (
@@ -57,20 +67,20 @@ const WorkCard = memo(function WorkCard({ work }: { work: (typeof works)[number]
               <span className="text-sm text-gray-400">準備中</span>
             </div>
           )}
-          <div className="absolute top-3 left-3 rounded-lg bg-text/80 px-4 py-1.5 text-xs font-bold tracking-wide text-white">
-            施工前
+          <div className="absolute top-2 left-2 rounded-md bg-text/80 px-3 py-1 text-xs font-bold tracking-wide text-white">
+            Before
           </div>
         </div>
 
         {/* After */}
-        <div className="relative aspect-[4/3]">
+        <div className="relative aspect-[3/2] overflow-hidden rounded-lg">
           {work.after ? (
             <Image
               src={work.after}
               alt={`${work.location} 施工後`}
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 50vw, 25vw"
+              sizes="(max-width: 768px) 45vw, 30vw"
               loading="eager"
             />
           ) : (
@@ -78,19 +88,10 @@ const WorkCard = memo(function WorkCard({ work }: { work: (typeof works)[number]
               <span className="text-sm text-accent">準備中</span>
             </div>
           )}
-          <div className="absolute top-3 left-3 rounded-lg bg-accent px-4 py-1.5 text-xs font-bold tracking-wide text-white shadow-sm">
-            施工後
+          <div className="absolute top-2 left-2 rounded-md bg-accent px-3 py-1 text-xs font-bold tracking-wide text-white shadow-sm">
+            After
           </div>
         </div>
-      </div>
-
-      {/* Info Bar */}
-      <div className="border-t border-border p-5">
-        <div className="flex items-center gap-1.5 text-base font-bold text-text">
-          <MapPin size={16} className="text-primary" />
-          {work.location}
-        </div>
-        <p className="mt-1 text-sm text-text-muted">{work.description}</p>
       </div>
     </div>
   );
@@ -121,7 +122,7 @@ export default function BeforeAfterSection() {
         </ScrollReveal>
 
         <ScrollReveal>
-          <div className="mx-auto max-w-5xl">
+          <div className="mx-auto max-w-6xl">
             {/* モバイル: 全スライドを常にレンダリングし、opacityで切り替え */}
             <div className="relative lg:hidden">
               {works.map((work, index) => (

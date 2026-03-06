@@ -12,10 +12,10 @@ export default function Footer() {
           <div>
             <Image
               src="/images/logo.png"
-              alt="つばめの住"
-              width={260}
-              height={87}
-              className="h-28 w-auto brightness-0 invert"
+              alt="G.S.C Co.,Ltd."
+              width={241}
+              height={212}
+              className="h-16 w-auto brightness-0 invert"
             />
             <p className="mt-2 text-sm text-gray-400">
               千葉県・外壁塗装・屋根塗装・リフォーム

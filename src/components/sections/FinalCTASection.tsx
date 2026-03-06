@@ -33,15 +33,15 @@ export default function FinalCTASection() {
         <ScrollReveal>
           <div className="text-center">
             <span className="mb-3 inline-block rounded-full bg-white/20 px-5 py-2 text-sm font-bold text-white">
-              無料お見積もり
+              ご相談・お見積もり
             </span>
             <h2 className="mb-4 font-display text-[24px] font-bold text-white md:text-[34px] lg:text-[38px]">
-              まずは相場確認からでも大丈夫です
+              まずはお気軽にご相談ください
             </h2>
             <p className="mb-10 text-base leading-relaxed text-white/80 md:text-lg">
-              お住まいのご状態を確認させていただきしっかりとご提案いたします。
+              お住まいのご状況を確認させていただき
               <br className="hidden lg:block" />
-              相見積もりも大歓迎です。
+              お客様の建物にあった最適なご提案をいたします。
             </p>
           </div>
         </ScrollReveal>
@@ -77,16 +77,16 @@ export default function FinalCTASection() {
         <ScrollReveal delay={0.3}>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-8 text-base text-white/80">
             <span className="flex items-center gap-2">
+              <ShieldCheck size={16} />
+              施工後も責任対応
+            </span>
+            <span className="flex items-center gap-2">
               <Users size={16} />
-              相見積もり歓迎
+              有資格者が現場管理
             </span>
             <span className="flex items-center gap-2">
               <Banknote size={16} />
-              お見積もり無料
-            </span>
-            <span className="flex items-center gap-2">
-              <ShieldCheck size={16} />
-              しつこい営業なし
+              自社施工の一貫体制
             </span>
           </div>
         </ScrollReveal>

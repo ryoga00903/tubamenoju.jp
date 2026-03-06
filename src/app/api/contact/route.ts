@@ -39,7 +39,7 @@ export async function POST(request: Request) {
         : "指定なし";
 
     const { error } = await resend.emails.send({
-      from: "つばめの住 お問い合わせ <onboarding@resend.dev>",
+      from: "株式会社G.S.C お問い合わせ <onboarding@resend.dev>",
       to: contactEmail,
       subject: `【お問い合わせ】${name.trim()}様より`,
       text: [

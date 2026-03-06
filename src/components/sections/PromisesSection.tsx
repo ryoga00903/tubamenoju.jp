@@ -1,11 +1,11 @@
 "use client";
 
-import { CircleDollarSign, Sparkles, Zap } from "lucide-react";
+import { CircleDollarSign, ShieldCheck, Handshake } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { PROMISES } from "@/lib/constants";
 
-const icons = [CircleDollarSign, Sparkles, Zap];
+const icons = [CircleDollarSign, ShieldCheck, Handshake];
 
 export default function PromisesSection() {
   return (
@@ -14,7 +14,6 @@ export default function PromisesSection() {
         <div className="rounded-2xl bg-primary px-4 py-14 md:px-8 md:py-16 lg:px-12 lg:py-20">
           <ScrollReveal>
             <SectionHeading
-              label="お客様へのお約束"
               engLabel="PROMISE"
               title="私たちの3つの約束"
               dark

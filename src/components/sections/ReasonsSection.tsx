@@ -4,13 +4,11 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const reasons = [
-  { title: "豊富な実績", description: "累計施工実績\n3,000件以上" },
-  { title: "押し売りしない", description: "しつこい営業は\n一切しません" },
-  { title: "地域密着", description: "千葉県に根ざして\n15年" },
-  { title: "有資格者", description: "一級塗装技能士が\n在籍" },
-  { title: "徹底管理", description: "施工管理を\n徹底しています" },
-  { title: "下請無し", description: "自社施工で\n中間マージン0" },
-  { title: "アフターお任せ", description: "最長10年の\n保証付き" },
+  { title: "累計施工実績", description: "確かな実績に裏付けられた\n技術力と対応力" },
+  { title: "職人直営店", description: "自社施工による\n一貫した品質管理" },
+  { title: "有資格者在籍", description: "施工管理技士などの\n国家資格保有者が対応" },
+  { title: "アフターサービス", description: "最長15年保証で\n施工後も責任を持って対応" },
+  { title: "地域密着対応", description: "千葉県を中心に\n迅速かつ丁寧に対応" },
 ];
 
 export default function ReasonsSection() {
@@ -22,14 +20,13 @@ export default function ReasonsSection() {
       <div className="container-main relative">
         <ScrollReveal>
           <SectionHeading
-            label="私たちが選ばれる理由"
             engLabel="REASONS"
-            title="私たちが選ばれる7つの理由"
+            title="私たちが選ばれる5つの理由"
             titleClassName="text-[24px] md:text-[32px] lg:text-[36px]"
           />
         </ScrollReveal>
 
-        <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 md:gap-6 lg:gap-7">
+        <div className="grid grid-cols-2 gap-5 md:grid-cols-3 md:gap-6 lg:grid-cols-5 lg:gap-7">
           {reasons.map((reason, index) => (
               <ScrollReveal key={index} delay={index * 0.06}>
                 <div className="card-rich flex flex-col items-center p-6 text-center lg:p-8">

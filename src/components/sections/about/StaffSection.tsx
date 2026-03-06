@@ -15,7 +15,7 @@ const features = [
     icon: Users,
     title: "日本人スタッフ配属",
     description:
-      "弊社は、日本人の作業スタッフを配属しております。お客様との円滑なコミュニケーションで安心の施工をお届けします。",
+      "弊社は、日本人の作業スタッフを配属しております。お客様との円滑なコミュニケーションで確実な施工を実現します。",
   },
 ];
 
@@ -27,7 +27,7 @@ export default function StaffSection() {
           <SectionHeading
             label="スタッフの特徴"
             engLabel="STAFF"
-            title="安心の作業体制"
+            title="徹底した施工体制"
           />
         </ScrollReveal>
 

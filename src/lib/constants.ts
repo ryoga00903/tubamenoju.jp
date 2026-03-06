@@ -1,7 +1,7 @@
 export const COMPANY = {
-  name: "つばめの住",
+  name: "株式会社G.S.C",
   nameEn: "Tsubame no Ju",
-  corporateName: "つばめの住",
+  corporateName: "株式会社G.S.C",
   tagline: "千葉県・外壁塗装・屋根塗装・リフォーム",
   phone: "047-338-7011",
   phoneHref: "tel:0473387011",
@@ -53,7 +53,7 @@ export const REASONS = [
   { number: 1, title: "豊富な実績", description: "累計施工実績3,000件以上", icon: "award" },
   { number: 2, title: "押し売りしない", description: "しつこい営業は一切しません", icon: "heart" },
   { number: 3, title: "地域密着", description: "千葉県に根ざして15年", icon: "mapPin" },
-  { number: 4, title: "有資格者", description: "一級塗装技能士が在籍", icon: "certificate" },
+  { number: 4, title: "有資格者", description: "国家資格保有者が在籍", icon: "certificate" },
   { number: 5, title: "徹底管理", description: "施工管理を徹底しています", icon: "clipboard" },
   { number: 6, title: "下請無し", description: "自社施工で中間マージン0", icon: "building" },
   { number: 7, title: "アフターお任せ", description: "最長10年の保証付き", icon: "shield" },
@@ -63,43 +63,46 @@ export const PROMISES = [
   {
     title: "適正価格",
     description:
-      "自社施工だからこそ、中間マージンが発生しません。お客様に適正な価格でご提供いたします。他社の見積もりと比較してください。",
+      "自社施工による一貫体制で中間マージンを排除。根拠のある見積もりで、納得いただける価格をご提示いたします。",
   },
   {
-    title: "仕上がりの美しさ",
+    title: "確かな施工品質",
     description:
-      "一級塗装技能士が丁寧に施工いたします。細部にまでこだわった美しい仕上がりをお約束します。",
+      "経験豊富な職人が現場を管理し、細部まで妥協のない施工を徹底。建物の価値を守る品質をお約束します。",
   },
   {
-    title: "スピード対応",
+    title: "誠実な対応",
     description:
-      "お問い合わせから最短で翌日に現地調査が可能です。スピーディーな対応でお客様をお待たせしません。",
+      "ご相談から施工完了、その後のアフターフォローまで。担当者が責任を持って一貫対応いたします。",
   },
 ] as const;
 
 export const PRICING = [
   {
-    label: "外壁塗装",
+    label: "シリコン塗料",
     priceRange: "60〜80",
     unit: "万円",
     tax: "税込",
     note: "30坪の場合",
+    durability: "耐用年数 約8〜12年",
     highlighted: false,
   },
   {
-    label: "外壁+屋根塗装",
-    priceRange: "100〜130",
+    label: "フッ素塗料",
+    priceRange: "80〜110",
     unit: "万円",
     tax: "税込",
     note: "30坪の場合",
+    durability: "耐用年数 約12〜17年",
     highlighted: true,
   },
   {
-    label: "外壁+屋根+付帯",
-    priceRange: "130〜170",
+    label: "無機塗料",
+    priceRange: "100〜140",
     unit: "万円",
     tax: "税込",
     note: "30坪の場合",
+    durability: "耐用年数 約17〜25年",
     highlighted: false,
   },
 ] as const;
@@ -209,7 +212,7 @@ export const SERVICE_AREAS = [
 ] as const;
 
 export const GREETING_MESSAGE = {
-  title: "常に必要とされる「つばめの住」であるために",
+  title: "常に必要とされる「株式会社G.S.C」であるために",
   paragraphs: [
     "弊社は「０をつくり、０から築く（何もないところから新たな可能性を創り出すこと）」を念頭に、建設工事で重要な役割とされる解体工事業を主軸に事業展開をさせていただいております。お客様からの声を柔軟に対応出来るように、対応力を高めて、責任を持った安全工事を社員と共に日々取り組んでいます。",
     "時代や企業を取り巻く環境は、急速なグローバル化や多様化が進み変革の時代を迎えています。長期的な視野に立って施工技術を向上すること、地球環境に配慮したリサイクルや様々な環境対策の推進に努めています。",
@@ -266,8 +269,8 @@ export const BUSINESS_CATEGORIES = [
 ] as const;
 
 export const COMPANY_INFO_TABLE = [
-  { label: "会社名", value: "つばめの住" },
-  { label: "屋号", value: "つばめの住" },
+  { label: "会社名", value: "株式会社G.S.C" },
+  { label: "屋号", value: "株式会社G.S.C" },
   { label: "本社所在地", value: "〒272-0811 千葉県市川市北方町4丁目1828-1" },
   { label: "電話番号（本社）", value: "047-338-7011" },
   { label: "東京営業所", value: "東京都文京区本郷4-16-6 天翔オフィス後楽園 503" },

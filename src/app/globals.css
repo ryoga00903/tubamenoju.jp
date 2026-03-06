@@ -5,25 +5,25 @@
     "Hiragino Sans", Meiryo, sans-serif;
   --font-display: var(--font-shippori-mincho), "游明朝", "Yu Mincho",
     "Hiragino Mincho ProN", serif;
-  --color-primary: #1B4D3E;
-  --color-primary-dark: #143A2F;
-  --color-primary-light: #E8F0ED;
+  --color-primary: #1E5E99;
+  --color-primary-dark: #174D80;
+  --color-primary-light: #EBF3FA;
   --color-secondary: #06C755;
   --color-secondary-dark: #05B04A;
-  --color-accent: #C4753B;
-  --color-accent-dark: #A8612F;
-  --color-accent-light: #FBF3ED;
+  --color-accent: #D44332;
+  --color-accent-dark: #B53828;
+  --color-accent-light: #FDF0EE;
   --color-gold: #B8960C;
   --color-gold-light: #FBF8EC;
   --color-text: #1A1A1A;
-  --color-text-muted: #6B7280;
-  --color-text-light: #9CA3AF;
-  --color-bg: #FAFBFA;
-  --color-bg-warm: #F7F4F0;
-  --color-bg-gray: #F5F7FA;
-  --color-border: #E5E7EB;
-  --color-border-light: #F3F4F6;
-  --color-footer: #1A2A23;
+  --color-text-muted: #5A6573;
+  --color-text-light: #8D96A3;
+  --color-bg: #F7F9FC;
+  --color-bg-warm: #F0F4F8;
+  --color-bg-gray: #EEF2F7;
+  --color-border: #E2E8F0;
+  --color-border-light: #F1F5F9;
+  --color-footer: #1A2636;
 }
 
 html {
@@ -85,17 +85,17 @@ body {
   background: white;
   border-radius: 1rem;
   box-shadow:
-    0 4px 24px rgba(27, 77, 62, 0.08),
+    0 4px 24px rgba(30, 94, 153, 0.08),
     0 1px 4px rgba(0, 0, 0, 0.05),
-    0 0 0 1px rgba(27, 77, 62, 0.03);
+    0 0 0 1px rgba(30, 94, 153, 0.03);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .card-elevated:hover {
   box-shadow:
-    0 12px 40px rgba(27, 77, 62, 0.14),
+    0 12px 40px rgba(30, 94, 153, 0.14),
     0 4px 12px rgba(0, 0, 0, 0.08),
-    0 0 0 1px rgba(27, 77, 62, 0.06);
+    0 0 0 1px rgba(30, 94, 153, 0.06);
   transform: translateY(-2px);
 }
 
@@ -103,17 +103,17 @@ body {
 .card-rich {
   background: white;
   border-radius: 1.25rem;
-  border: 1px solid rgba(27, 77, 62, 0.06);
+  border: 1px solid rgba(30, 94, 153, 0.06);
   box-shadow:
-    0 8px 32px rgba(27, 77, 62, 0.10),
+    0 8px 32px rgba(30, 94, 153, 0.10),
     0 2px 8px rgba(0, 0, 0, 0.05);
   transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
 }
 
 .card-rich:hover {
-  border-color: rgba(27, 77, 62, 0.12);
+  border-color: rgba(30, 94, 153, 0.12);
   box-shadow:
-    0 16px 48px rgba(27, 77, 62, 0.16),
+    0 16px 48px rgba(30, 94, 153, 0.16),
     0 4px 16px rgba(0, 0, 0, 0.08);
   transform: translateY(-3px);
 }
@@ -124,8 +124,8 @@ body {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(27, 77, 62, 0.12) 20%,
-    rgba(27, 77, 62, 0.12) 80%,
+    rgba(30, 94, 153, 0.12) 20%,
+    rgba(30, 94, 153, 0.12) 80%,
     transparent
   );
   max-width: 1200px;

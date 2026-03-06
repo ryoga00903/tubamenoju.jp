@@ -15,16 +15,16 @@ const BASE_URL = "https://tubamenoju.jp";
 export const metadata: Metadata = {
   title: "会社概要",
   description:
-    "つばめの住の会社概要。千葉県市川市を拠点に、内装解体工事・建物解体工事・アスベスト除去工事・リフォームなど幅広い建設事業を展開しています。",
+    "株式会社G.S.Cの会社概要。千葉県市川市を拠点に、内装解体工事・建物解体工事・アスベスト除去工事・リフォームなど幅広い建設事業を展開しています。",
   alternates: {
     canonical: `${BASE_URL}/about`,
   },
   openGraph: {
-    title: "会社概要｜つばめの住",
+    title: "会社概要｜株式会社G.S.C",
     description:
-      "つばめの住の会社概要。千葉県市川市を拠点に、外壁塗装・屋根塗装・リフォームなど幅広い建設事業を展開しています。",
+      "株式会社G.S.Cの会社概要。千葉県市川市を拠点に、外壁塗装・屋根塗装・リフォームなど幅広い建設事業を展開しています。",
     url: `${BASE_URL}/about`,
-    siteName: "つばめの住",
+    siteName: "株式会社G.S.C",
     locale: "ja_JP",
     type: "article",
     images: [
@@ -32,15 +32,15 @@ export const metadata: Metadata = {
         url: `${BASE_URL}/images/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "つばめの住 会社概要",
+        alt: "株式会社G.S.C 会社概要",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "会社概要｜つばめの住",
+    title: "会社概要｜株式会社G.S.C",
     description:
-      "つばめの住の会社概要。千葉県市川市を拠点に、外壁塗装・屋根塗装・リフォームなど幅広い建設事業を展開しています。",
+      "株式会社G.S.Cの会社概要。千葉県市川市を拠点に、外壁塗装・屋根塗装・リフォームなど幅広い建設事業を展開しています。",
     images: [`${BASE_URL}/images/og-image.png`],
   },
 };

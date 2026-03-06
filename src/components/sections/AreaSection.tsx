@@ -10,7 +10,6 @@ export default function AreaSection() {
       <div className="container-main">
         <ScrollReveal>
           <SectionHeading
-            label="対応エリア"
             engLabel="AREA"
             title="千葉県を中心に対応しています"
             titleClassName="text-[24px] md:text-[32px] lg:text-[36px]"

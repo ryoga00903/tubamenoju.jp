@@ -6,18 +6,6 @@ import SectionHeading from "@/components/ui/SectionHeading";
 
 const worries = [
   {
-    icon: Home,
-    title: "地震や台風の影響が気になる方",
-    color: "text-accent",
-    bgColor: "bg-accent-light",
-  },
-  {
-    icon: Palette,
-    title: "色選びが\n不安",
-    color: "text-primary",
-    bgColor: "bg-primary-light",
-  },
-  {
     icon: Search,
     title: "業者選びが\n難しい",
     color: "text-gold",
@@ -29,6 +17,18 @@ const worries = [
     color: "text-accent",
     bgColor: "bg-accent-light",
   },
+  {
+    icon: Home,
+    title: "地震や台風の影響が気になる方",
+    color: "text-accent",
+    bgColor: "bg-accent-light",
+  },
+  {
+    icon: Palette,
+    title: "色選びが\n不安",
+    color: "text-primary",
+    bgColor: "bg-primary-light",
+  },
 ];
 
 export default function WorriesSection() {
@@ -38,8 +38,8 @@ export default function WorriesSection() {
         <ScrollReveal>
           <SectionHeading
             engLabel="WORRIES"
-            title="はじめての外壁塗装は不安ですよね"
-            subtitle="そんな不安を抱えている方はあなただけではありません"
+            title="こんなお悩みはありませんか"
+            subtitle="私たちはこれらの課題を解決してきた実績があります"
             titleClassName="text-[18px] sm:text-[22px] md:text-[28px] lg:text-[36px]"
             subtitleClassName="text-sm md:text-lg"
           />
@@ -69,8 +69,7 @@ export default function WorriesSection() {
               href="#reasons"
               className="inline-flex items-center gap-2 rounded-full bg-primary-light px-8 py-4 text-base font-bold text-primary shadow-sm transition-all hover:bg-primary hover:text-white hover:shadow-md"
             >
-              <span>✋</span>
-              私たちはそんな不安にひとつひとつお応えします
+              私たちが選ばれる理由をご覧ください
               <ArrowRight size={16} />
             </a>
           </div>

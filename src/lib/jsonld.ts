@@ -10,7 +10,7 @@ export function getLocalBusinessJsonLd() {
     "@id": `${BASE_URL}/#organization`,
     name: COMPANY.name,
     description:
-      "千葉県を中心に外壁塗装・屋根塗装・リフォームを行う「つばめの住」。累計施工実績3,000件以上。",
+      "千葉県を中心に外壁塗装・屋根塗装・リフォームを行う「株式会社G.S.C」。累計施工実績3,000件以上。",
     url: BASE_URL,
     telephone: COMPANY.phone,
     address: {
