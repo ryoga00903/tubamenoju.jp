@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     type: "article",
     images: [
       {
-        url: `${BASE_URL}/images/og-image.png`,
+        url: `${BASE_URL}/images/og-gsc.png`,
         width: 1200,
         height: 630,
         alt: "株式会社G.S.C 会社概要",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     title: "会社概要｜株式会社G.S.C",
     description:
       "株式会社G.S.Cの会社概要。千葉県市川市を拠点に、外壁塗装・屋根塗装・リフォームなど幅広い建設事業を展開しています。",
-    images: [`${BASE_URL}/images/og-image.png`],
+    images: [`${BASE_URL}/images/og-gsc.png`],
   },
 };
 

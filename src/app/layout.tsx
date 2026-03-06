@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     images: [
       {
-        url: `${BASE_URL}/images/og-image.png`,
+        url: `${BASE_URL}/images/og-gsc.png`,
         width: 1200,
         height: 630,
         alt: "株式会社G.S.C｜千葉県の外壁塗装・屋根塗装・リフォーム専門",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     title: "株式会社G.S.C｜千葉県の外壁塗装・屋根塗装・リフォーム専門",
     description:
       "千葉県を中心に外壁塗装・屋根塗装・リフォームを行う「株式会社G.S.C」。はじめてでもわかりやすくご案内します。",
-    images: [`${BASE_URL}/images/og-image.png`],
+    images: [`${BASE_URL}/images/og-gsc.png`],
   },
 };
 
