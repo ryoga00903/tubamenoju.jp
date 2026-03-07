@@ -125,15 +125,14 @@ export default function HeroSection() {
 
               {/* メイン見出し */}
               <h1 className="mb-2">
-                <span className="block font-display text-[30px] font-bold leading-tight text-white">
-                  屋根塗装
+                <span className="block font-display text-[28px] font-bold leading-tight text-white">
+                  40年住むから考える、
                 </span>
                 <span className="block font-display text-[26px] font-bold leading-tight text-white">
-                  外壁塗装リフォーム
+                  リフォームを
                 </span>
-                <span className="mt-1 block font-display text-[28px] font-bold leading-tight">
-                  <span className="text-gold">お得</span>
-                  <span className="text-white">にできます!!</span>
+                <span className="block font-display text-[28px] font-bold leading-tight text-white">
+                  ご案内します
                 </span>
               </h1>
 
